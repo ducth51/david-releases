@@ -1,1 +1,6 @@
-
+{
+  "version": "2026-07-12.81",
+  "notes": "- Thêm nút Cập nhật trong app\n- Đóng gói Nuitka (.exe portable)",
+  "exe_url": "https://github.com/ducth51/david-releases/releases/download/magicflow-2026-07-12.81/MagicFlow.exe",
+  "exe_sha256": ""
+}
