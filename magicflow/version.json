@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-12.81",
-  "notes": "- Thêm nút Cập nhật trong app\n- Đóng gói Nuitka (.exe portable)",
-  "exe_url": "https://github.com/ducth51/david-releases/releases/download/magicflow-2026-07-12.81/MagicFlow.exe",
-  "exe_sha256": ""
+  "version": "2026-07-12.85",
+  "notes": "- Hiện đồng hồ đếm ngược thời gian dùng thử\n- Tự khoá khi hết hạn dùng thử\n- Thêm số Zalo/SĐT vào màn kích hoạt",
+  "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
+  "exe_sha256": "79564ce0fe7358944361ced8b40615adb0c68add1be25b87edddbb508cb0acff"
 }
