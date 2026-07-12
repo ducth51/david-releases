@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-12.88",
-  "notes": "- Thêm số Zalo/SĐT vào thông báo\n- Thu hồi license tức thì\n- Đồng hồ đếm ngược dùng thử",
+  "version": "2026-07-12.89",
+  "notes": "- Thông báo hết hạn/thu hồi có kèm Mã máy\n- Thu hồi license tức thì\n- Đồng hồ đếm ngược dùng thử",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "c72614b69421d36842a9c1a2c528b338e42c3f7bd76b729c67e9862bdaf8c7ae"
+  "exe_sha256": "5f91fe39a3a29b01b1e9c9d474eee8cf869a2eed6f18eec523c9c7a7fdd44edc"
 }
