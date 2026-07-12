@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-12.85",
-  "notes": "- Hiện đồng hồ đếm ngược thời gian dùng thử\n- Tự khoá khi hết hạn dùng thử\n- Thêm số Zalo/SĐT vào màn kích hoạt",
+  "version": "2026-07-12.86",
+  "notes": "- Dời đồng hồ đếm ngược dùng thử xuống dưới cùng cho gọn\n- Hiện đồng hồ đếm ngược thời gian dùng thử\n- Tự khoá khi hết hạn dùng thử",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "79564ce0fe7358944361ced8b40615adb0c68add1be25b87edddbb508cb0acff"
+  "exe_sha256": "642cfc980da657b954f4d0f7ec49b9f9845e058cf86d2e5049a69afd7294f3a7"
 }
