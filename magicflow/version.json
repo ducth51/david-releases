@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.104",
-  "notes": "- Sửa lỗi giao diện hiển thị logo Rảnh Tay thành biểu tượng mặc định.\n- Khắc phục lỗi thiếu 3 logo tròn ở menu.\n- Loại bỏ file cảnh báo không cần thiết.",
+  "version": "2026-07-13.105",
+  "notes": "- Canh giữa cột # và chữ Prompt.\n- Đổi 'Prompt' thành 'Nội dung prompt tạo ảnh/video'.\n- Xóa nút Khởi động lại, dời nút Cập nhật ra góc phải.\n- Đồng bộ màu nút Đặt lại toàn bộ cài đặt.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "9c61be0fd3f6b85d6f12ae926ab9755a378356bdc5d56654b13a1cbba059b3eb"
+  "exe_sha256": "61da2e5f1f05981b8133b864e47576ed4152a7216f851e3ead5f284750e3e2e0"
 }
