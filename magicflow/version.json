@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.107",
-  "notes": "- Tối ưu thu gọn đường dẫn dài vừa khít giao diện màn hình.\n- Đồng bộ, cải thiện thẩm mỹ cho nút bấm và cửa sổ chi tiết.",
+  "version": "2026-07-13.108",
+  "notes": "- Bổ sung bản dịch tiếng Anh cho nhãn Bản quyền ở thanh sidebar.\n- Đã bao gồm các bản sửa lỗi UI/UX trước đó (gộp nút Start/Dừng, canh giữa bảng chi tiết, thu gọn đường dẫn).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "42d8b55e071f3e6b65d7e27ab04daa8b481b0f7b3607e2dc4cbd30f113708078"
+  "exe_sha256": "39c5b7ac0ffa8d89320084a6663d7a00430544bf51dba9ba14a3061a2e581c1d"
 }
