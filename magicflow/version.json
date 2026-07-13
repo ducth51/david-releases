@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-12.89",
-  "notes": "- Thông báo hết hạn/thu hồi có kèm Mã máy\n- Thu hồi license tức thì\n- Đồng hồ đếm ngược dùng thử",
+  "version": "2026-07-13.102",
+  "notes": "- Khắc phục triệt để lỗi các cột trong bảng Log bị lệch.\n- Sửa lỗi khoảng trống khổng lồ ở phần văn bản Prompt.\n- Cập nhật thông tin bản quyền.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "5f91fe39a3a29b01b1e9c9d474eee8cf869a2eed6f18eec523c9c7a7fdd44edc"
+  "exe_sha256": "27a16f13903cf78c9c10ccfd488390cd675f34a18dd40f8d33eb34cdd60df133"
 }
