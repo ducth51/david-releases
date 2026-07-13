@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.105",
-  "notes": "- Canh giữa cột # và chữ Prompt.\n- Đổi 'Prompt' thành 'Nội dung prompt tạo ảnh/video'.\n- Xóa nút Khởi động lại, dời nút Cập nhật ra góc phải.\n- Đồng bộ màu nút Đặt lại toàn bộ cài đặt.",
+  "version": "2026-07-13.106",
+  "notes": "- Thêm nhãn hướng dẫn chọn bước thực hiện ở trang Thiết lập.\n- Thêm nút Chi tiết giải thích rõ ràng luồng hoạt động khi tích chọn Bước 1, Bước 2 hoặc cả hai.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "61da2e5f1f05981b8133b864e47576ed4152a7216f851e3ead5f284750e3e2e0"
+  "exe_sha256": "40ba9a4311a4c81c8e5dc4d89238515cc22c0838fef828cf3791727013932840"
 }
