@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.108",
-  "notes": "- Bổ sung bản dịch tiếng Anh cho nhãn Bản quyền ở thanh sidebar.\n- Đã bao gồm các bản sửa lỗi UI/UX trước đó (gộp nút Start/Dừng, canh giữa bảng chi tiết, thu gọn đường dẫn).",
+  "version": "2026-07-13.109",
+  "notes": "- Tự động dọn dẹp file SingletonLock cũ để ngăn lỗi Chrome thoát đột ngột (exit code 21) ở lần chạy đầu tiên.\n- Bổ sung bản dịch tiếng Anh cho nhãn Bản quyền ở thanh sidebar.\n- Đã bao gồm các bản sửa lỗi UI/UX trước đó (gộp nút Start/Dừng, canh giữa bảng chi tiết, thu gọn đường dẫn).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "39c5b7ac0ffa8d89320084a6663d7a00430544bf51dba9ba14a3061a2e581c1d"
+  "exe_sha256": "5ea3f7a9bb7a652d59e3871eea2811026ec862e464df41fe9acd8551179e3835"
 }
