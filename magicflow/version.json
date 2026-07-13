@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.103",
-  "notes": "- Sửa lỗi giao diện hiển thị logo Rảnh Tay thành biểu tượng mặc định.\n- Khắc phục triệt để lỗi các cột trong bảng Log bị lệch.\n- Sửa lỗi khoảng trống khổng lồ ở phần văn bản Prompt.",
+  "version": "2026-07-13.104",
+  "notes": "- Sửa lỗi giao diện hiển thị logo Rảnh Tay thành biểu tượng mặc định.\n- Khắc phục lỗi thiếu 3 logo tròn ở menu.\n- Loại bỏ file cảnh báo không cần thiết.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "521e22184c6f305d95f956646537cbe2b2e4f7eaa3b821b1e121e48acadee50a"
+  "exe_sha256": "9c61be0fd3f6b85d6f12ae926ab9755a378356bdc5d56654b13a1cbba059b3eb"
 }
