@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "notes": "Bản đầu tiên. Khi ra bản mới: tăng 'version', upload MagicCapcutStudio.exe mới vào thư mục này, cập nhật 'exe_sha256'.",
+  "version": "1.0.1",
+  "notes": "- Màn hình khi key bị thu hồi/hết hạn giờ hiện đầy đủ Mã máy + ô nhập key mới + liên hệ Zalo (không còn chỉ báo lỗi rồi thoát).\n- Thêm footer bản quyền + 'Hạn sử dụng' ở thanh bên.\n- Key có thời hạn nay được kiểm tra thật (hết hạn sẽ yêu cầu key mới).\n- Nút 'Kiểm tra cập nhật' hiện popup kết quả rõ ràng.\n- Đổi nhãn thành 'Phiên bản cập nhật hiện tại'.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": ""
+  "exe_sha256": "9927d781453e54f9113190aef823ac63c64950536ea84b6f5e848e848dbd6009"
 }
