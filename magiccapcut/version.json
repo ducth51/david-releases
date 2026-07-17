@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "notes": "Bản đầu tiên. Khi ra bản mới: tăng 'version', upload MagicCapcutStudio.exe mới vào thư mục này, cập nhật 'exe_sha256'.",
+  "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
+  "exe_sha256": ""
+}
