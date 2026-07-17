@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "notes": "- Màn hình khi key bị thu hồi/hết hạn giờ hiện đầy đủ Mã máy + ô nhập key mới + liên hệ Zalo (không còn chỉ báo lỗi rồi thoát).\n- Thêm footer bản quyền + 'Hạn sử dụng' ở thanh bên.\n- Key có thời hạn nay được kiểm tra thật (hết hạn sẽ yêu cầu key mới).\n- Nút 'Kiểm tra cập nhật' hiện popup kết quả rõ ràng.\n- Đổi nhãn thành 'Phiên bản cập nhật hiện tại'.",
+  "version": "1.0.2",
+  "notes": "- Thu gọn màn hình Kích hoạt: bỏ khoảng trống thừa, gộp 'Chưa có key?' và nút liên hệ vào một hàng — không còn bị cắt chữ ở dưới.\n- Đổi nhãn thành 'Phiên bản cập nhật hiện tại'.\n- Màn hình khi key bị thu hồi/hết hạn hiện đầy đủ Mã máy + ô nhập key mới + liên hệ Zalo.\n- Thêm footer bản quyền + 'Hạn sử dụng' ở thanh bên.\n- Key có thời hạn nay được kiểm tra thật.\n- Nút 'Kiểm tra cập nhật' hiện popup kết quả rõ ràng.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "9927d781453e54f9113190aef823ac63c64950536ea84b6f5e848e848dbd6009"
+  "exe_sha256": "72f0130c2f6c2facb3102c82de2e851cd5cfca8397582c2c6e9e0824e8ca4903"
 }
