@@ -1,6 +1,6 @@
 {
-  "version": "1.0.4",
-  "notes": "- Thiết kế lại toàn bộ hộp thoại (popups) hiện đại, bo góc đẹp mắt.\n- Thêm tuỳ chọn đổi giao diện Tối/Sáng trong tab Hệ thống (lưu và áp dụng tự động).",
+  "version": "1.0.5",
+  "notes": "- Thiết kế lại toàn bộ hộp thoại (popups) hiện đại, bo góc đẹp mắt.\n- Thêm tuỳ chọn đổi giao diện Tối/Sáng trong tab Hệ thống (lưu và áp dụng tự động).\n- Sửa lỗi hiển thị màu sắc nút bấm trong chế độ Sáng.\n- Nâng cấp màn hình Kích hoạt thành popup riêng biệt với giao diện mới.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "d197a3059fdca94df819f5c7bea3b20d19f736c92ed7de9e41764ad61596e870"
+  "exe_sha256": "3bfa28aab16342251ed28c48f0afb73935ea9aef5acc4fe9b13d2c568f33b747"
 }
