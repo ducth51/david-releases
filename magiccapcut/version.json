@@ -1,6 +1,6 @@
 {
-  "version": "1.0.8",
-  "notes": "- Tối ưu font chữ to rõ hơn toàn hệ thống.\n- Căn chỉnh thẳng hàng các ô nhập liệu, danh sách chọn (ngôn ngữ, giao diện).\n- Bỏ số thứ tự menu bên trái cho thanh thoát hơn.\n- Đồng bộ màu sắc nút phụ trợ chính xác 100%.",
+  "version": "1.0.9",
+  "notes": "- Khắc phục mất Logo: gói logo trực tiếp vào phần mềm thay vì đọc file rời, đảm bảo cập nhật OTA không bị mất hình.\n- Căn lề công cụ Trợ lý định vị: các nút \"Lấy vị trí\" trong tab Xuất Hàng Loạt giờ thẳng hàng tuyệt đối.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "69750a0be961ca8a33d8def3cf2a27b2743a1b2e6dbb075df5d342377cedbb2c"
+  "exe_sha256": "9b9bb61a6da606fa811cdcd461dfb14296a0ceb582250d9d20593a9375650707"
 }
