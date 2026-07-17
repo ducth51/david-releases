@@ -1,6 +1,6 @@
 {
-  "version": "1.0.5",
-  "notes": "- Thiết kế lại toàn bộ hộp thoại (popups) hiện đại, bo góc đẹp mắt.\n- Thêm tuỳ chọn đổi giao diện Tối/Sáng trong tab Hệ thống (lưu và áp dụng tự động).\n- Sửa lỗi hiển thị màu sắc nút bấm trong chế độ Sáng.\n- Nâng cấp màn hình Kích hoạt thành popup riêng biệt với giao diện mới.",
+  "version": "1.0.7",
+  "notes": "- Gom nhóm 6 công cụ phụ trợ vào tab Tiện Ích Video chung.\n- Nổi bật tab đang chọn với màu Cam (MagicFlow).\n- Đồng bộ hóa màu sắc tất cả các nút bấm (Reset, Chọn file,...) sang màu Cam chuyên nghiệp.\n- Khắc phục lỗi hiển thị khối trắng ở nền và lỗi tràn nút bấm ra ngoài màn hình.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "3bfa28aab16342251ed28c48f0afb73935ea9aef5acc4fe9b13d2c568f33b747"
+  "exe_sha256": "6ed2788137855a842f5e6ab5f575abebb7a1f29232bf3a8bb8a44b0b39072920"
 }
