@@ -1,6 +1,6 @@
 {
-  "version": "1.0.2",
-  "notes": "- Thu gọn màn hình Kích hoạt: bỏ khoảng trống thừa, gộp 'Chưa có key?' và nút liên hệ vào một hàng — không còn bị cắt chữ ở dưới.\n- Đổi nhãn thành 'Phiên bản cập nhật hiện tại'.\n- Màn hình khi key bị thu hồi/hết hạn hiện đầy đủ Mã máy + ô nhập key mới + liên hệ Zalo.\n- Thêm footer bản quyền + 'Hạn sử dụng' ở thanh bên.\n- Key có thời hạn nay được kiểm tra thật.\n- Nút 'Kiểm tra cập nhật' hiện popup kết quả rõ ràng.",
+  "version": "1.0.3",
+  "notes": "- Cập nhật giao diện theo tone tối (warm charcoal) sang trọng và chuyên nghiệp hơn, đồng nhất với thiết kế của MagicFlow.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "72f0130c2f6c2facb3102c82de2e851cd5cfca8397582c2c6e9e0824e8ca4903"
+  "exe_sha256": "64cc86eb1038ae08393021661b8cba53e5d811d90fbb9de1aed782b59758070b"
 }
