@@ -1,6 +1,6 @@
 {
-  "version": "1.0.7",
-  "notes": "- Gom nhóm 6 công cụ phụ trợ vào tab Tiện Ích Video chung.\n- Nổi bật tab đang chọn với màu Cam (MagicFlow).\n- Đồng bộ hóa màu sắc tất cả các nút bấm (Reset, Chọn file,...) sang màu Cam chuyên nghiệp.\n- Khắc phục lỗi hiển thị khối trắng ở nền và lỗi tràn nút bấm ra ngoài màn hình.",
+  "version": "1.0.8",
+  "notes": "- Tối ưu font chữ to rõ hơn toàn hệ thống.\n- Căn chỉnh thẳng hàng các ô nhập liệu, danh sách chọn (ngôn ngữ, giao diện).\n- Bỏ số thứ tự menu bên trái cho thanh thoát hơn.\n- Đồng bộ màu sắc nút phụ trợ chính xác 100%.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "6ed2788137855a842f5e6ab5f575abebb7a1f29232bf3a8bb8a44b0b39072920"
+  "exe_sha256": "69750a0be961ca8a33d8def3cf2a27b2743a1b2e6dbb075df5d342377cedbb2c"
 }
