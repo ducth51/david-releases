@@ -1,6 +1,6 @@
 {
-  "version": "1.0.3",
-  "notes": "- Cập nhật giao diện theo tone tối (warm charcoal) sang trọng và chuyên nghiệp hơn, đồng nhất với thiết kế của MagicFlow.",
+  "version": "1.0.4",
+  "notes": "- Thiết kế lại toàn bộ hộp thoại (popups) hiện đại, bo góc đẹp mắt.\n- Thêm tuỳ chọn đổi giao diện Tối/Sáng trong tab Hệ thống (lưu và áp dụng tự động).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "64cc86eb1038ae08393021661b8cba53e5d811d90fbb9de1aed782b59758070b"
+  "exe_sha256": "d197a3059fdca94df819f5c7bea3b20d19f736c92ed7de9e41764ad61596e870"
 }
