@@ -1,6 +1,6 @@
 {
-  "version": "1.0.9",
-  "notes": "- Khắc phục mất Logo: gói logo trực tiếp vào phần mềm thay vì đọc file rời, đảm bảo cập nhật OTA không bị mất hình.\n- Căn lề công cụ Trợ lý định vị: các nút \"Lấy vị trí\" trong tab Xuất Hàng Loạt giờ thẳng hàng tuyệt đối.",
+  "version": "1.0.10",
+  "notes": "- Tính năng mới: Audio → Text (trong Tiện Ích Video) — chuyển file âm thanh (MP3/WAV/M4A...) thành văn bản chi tiết, TỰ PHÂN BIỆT từng người nói kèm mốc thời gian. Xử lý ngay trên máy, không cần API key. Lần đầu dùng, app tự tải bộ nhận diện giọng nói (chỉ 1 lần).\n- Giao diện: hàng nút Tiện Ích Video gọn lại, hiển thị đủ 7 tab con không tràn cửa sổ.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "9b9bb61a6da606fa811cdcd461dfb14296a0ceb582250d9d20593a9375650707"
+  "exe_sha256": "c20fb8bf66c1f42138df24d539336ecbf618725aefa89f402d2ba3427f1b4649"
 }
