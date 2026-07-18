@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-13.109",
-  "notes": "- Tự động dọn dẹp file SingletonLock cũ để ngăn lỗi Chrome thoát đột ngột (exit code 21) ở lần chạy đầu tiên.\n- Bổ sung bản dịch tiếng Anh cho nhãn Bản quyền ở thanh sidebar.\n- Đã bao gồm các bản sửa lỗi UI/UX trước đó (gộp nút Start/Dừng, canh giữa bảng chi tiết, thu gọn đường dẫn).",
+  "version": "2026-07-18.110",
+  "notes": "- Giảm nguy cơ bị Google gắn cờ \"hoạt động bất thường\" khi chạy nhiều tab: các tab nay khởi động LỆCH NHAU (giãn cách ngẫu nhiên) thay vì mở đồng loạt cùng lúc — bớt tín hiệu bot, giảm rủi ro bị limit tài khoản.\n- Khuyến nghị để hạn chế bị limit: chạy 1–2 tab và bật 'Chạy chậm (giống người thật)'.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "5ea3f7a9bb7a652d59e3871eea2811026ec862e464df41fe9acd8551179e3835"
+  "exe_sha256": "350dfeb947c78ed69cd21cdb4f392b16ded81b4b7dea7cfa0b80b46f7e0f3172"
 }
