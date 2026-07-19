@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.131",
-  "notes": "- Sửa lỗi báo nhầm: ảnh ĐÃ tạo được trên Flow nhưng tool vẫn báo 'Thất bại' rồi tạm dừng cả batch.\n- Nguyên nhân: sau khi tool tự bấm 'Thử lại', ô báo lỗi CŨ vẫn nằm trên màn hình Flow nên tool tưởng là lỗi mới.\n- Nay chỉ tính thất bại khi có lỗi MỚI thật sự phát sinh; ảnh tạo lại thành công sẽ được chờ đủ và tải về bình thường.",
+  "version": "2026-07-19.132",
+  "notes": "- Sửa lỗi prompt bị mất chữ khi gõ ảnh tham chiếu: prompt gửi lên Flow có thể bị cắt cụt (ví dụ '[STYLE_ANC[STYLE_MASTER], ...') làm ảnh tạo ra sai nội dung.\n- Khi bấm 'Chạy lại', tool nay KIỂM TRA ảnh tham chiếu có còn dùng được cho @mention không; nếu mất hoặc đã tạo lại bản mới thì tự tải lên lại — trước đây âm thầm tạo ảnh KHÔNG tham chiếu ảnh mẫu, hoặc tham chiếu nhầm ảnh cũ.\n- Nên cập nhật: 2 lỗi trên đều xảy ra âm thầm, không báo lỗi, chỉ lộ ra khi xem kỹ ảnh kết quả.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "61d1b25876aaa2452e027d6b0c1b99a932210cdc70687ceceef06a47810e7149"
+  "exe_sha256": "c5e7eb6cecc808ebc936836bd10da2120f86ffea2c69d25220f4512749e75734"
 }
