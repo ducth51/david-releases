@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.127",
-  "notes": "- Nút 'Chọn ảnh lỗi' giờ chỉ tích đúng ảnh TẢI VỀ BỊ LỖI (không tích ảnh chưa chạy); bấm lần 2 bỏ tích; nút đổi màu cam đồng bộ.\n- Cột 'Tải ảnh' vẫn bấm để đưa ảnh lỗi lên đầu, gọn gàng hơn.",
+  "version": "2026-07-19.128",
+  "notes": "- Chạy lại: cột 'Tải ảnh' của ảnh đang chạy lại về '--' đúng lúc (không còn hiện 'Đã tải' cũ khi ảnh chưa tải xong).\n- Sau khi chạy lại xong, nếu còn ảnh chưa chạy lần nào, app hỏi 'chạy tiếp không?' để chạy tiếp ngay (tái dùng trình duyệt đang mở, khỏi bắt đầu lại từ đầu).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "a126a9c3806ce036055589603f5975b0658ca06960dd2a1bee09d2e21292d03d"
+  "exe_sha256": "d658a827430d972a159bf56cea63ab35902bd72b279012305734e8abbdfb2f1c"
 }
