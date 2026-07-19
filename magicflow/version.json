@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.130",
-  "notes": "- Khi áp cấu hình lên Google Flow chưa đủ, tool tự tải lại trình duyệt và thử lại tối đa 5 lần; nếu vẫn không được thì TẠM DỪNG và báo để bạn kiểm tra — không chạy tiếp với cấu hình có thể sai.",
+  "version": "2026-07-19.131",
+  "notes": "- Sửa lỗi báo nhầm: ảnh ĐÃ tạo được trên Flow nhưng tool vẫn báo 'Thất bại' rồi tạm dừng cả batch.\n- Nguyên nhân: sau khi tool tự bấm 'Thử lại', ô báo lỗi CŨ vẫn nằm trên màn hình Flow nên tool tưởng là lỗi mới.\n- Nay chỉ tính thất bại khi có lỗi MỚI thật sự phát sinh; ảnh tạo lại thành công sẽ được chờ đủ và tải về bình thường.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "a3801b8ed29167b9e5cae495cc0377e17fab07af764dc3462a7e29c5fa72d796"
+  "exe_sha256": "61d1b25876aaa2452e027d6b0c1b99a932210cdc70687ceceef06a47810e7149"
 }
