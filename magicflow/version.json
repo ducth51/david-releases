@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.125",
-  "notes": "- Bảng kết quả: bấm tiêu đề cột 'Tải ảnh' để đưa ảnh LỖI/chưa tải lên đầu (bấm lần 2 về mặc định); nút 'Chọn ảnh lỗi' tích hết ảnh lỗi chỉ 1 click; giữ Shift bấm để chọn cả dải nhiều dòng.\n- Chạy lại: GIỮ NGUYÊN trạng thái các ảnh đã xong (không còn reset cả bảng); popup báo đúng thư mục lưu theo bước.\n- Tải ảnh về thử tới 5 lần (giảm báo lỗi oan dù ảnh đã tạo xong).\n- Bố trí lại trang Tiến trình cho gọn (đưa các bước lên trên, bỏ thanh trống thừa).",
+  "version": "2026-07-19.127",
+  "notes": "- Nút 'Chọn ảnh lỗi' giờ chỉ tích đúng ảnh TẢI VỀ BỊ LỖI (không tích ảnh chưa chạy); bấm lần 2 bỏ tích; nút đổi màu cam đồng bộ.\n- Cột 'Tải ảnh' vẫn bấm để đưa ảnh lỗi lên đầu, gọn gàng hơn.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "a684bb6cc277e93e7fa09824aebe627cc19b72c652f214ffb45236b4c40dc2d9"
+  "exe_sha256": "a126a9c3806ce036055589603f5975b0658ca06960dd2a1bee09d2e21292d03d"
 }
