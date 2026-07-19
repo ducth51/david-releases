@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.118",
-  "notes": "- Thêm lựa chọn khi thư mục lưu đã có ảnh trùng tên: 'Ghi đè' (tạo mới đè lên ảnh cũ) hoặc 'Giữ ảnh cũ' (bỏ qua).\n- 'Chạy lại' kiểu mới: tích chọn nhiều ảnh trong bảng rồi bấm nút 'Chạy lại' ngay trên đầu cột — chỉ chạy lại đúng ảnh đã chọn.\n- Khi chạy lại mà ảnh tham chiếu bị thiếu trong thư mục, tool tự tạo lại ảnh tham chiếu đó trước rồi mới chạy ảnh.\n- Bước 'Ghi đè' khi tạo ảnh tham chiếu sẽ tạo lại từ đầu (theo thứ tự) thay vì dùng lại ảnh cũ.\n- Chạy nhiều tab khởi động lệch nhau, giảm nguy cơ bị Google gắn cờ 'hoạt động bất thường'.",
+  "version": "2026-07-19.121",
+  "notes": "- 'Chạy lại' nhanh hơn: nếu trình duyệt đang mở, tool DÙNG LẠI luôn trình duyệt + project + ảnh tham chiếu đã tải — chỉ gõ lại prompt các ảnh đã chọn, KHÔNG mở lại từ đầu.\n- Mở trình duyệt nhanh hơn trên máy chậm (bớt chờ vô ích lúc bấm START).\n- Ảnh tham chiếu tạo lại sẽ được cập nhật bản mới cho các ảnh khác dùng.\n- Nút 'Chạy lại' trên đầu cột đã canh thẳng hàng.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "66950786c9e1033d7e5b909d40bfd651ada34e1abf28135b1a0ed1ff7a8d15eb"
+  "exe_sha256": "847a1eb78d1675e5ccd579fa3aacf4c210504b919a5f1c7b6cfb6c9b8138a096"
 }
