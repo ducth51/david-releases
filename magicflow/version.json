@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-18.110",
-  "notes": "- Giảm nguy cơ bị Google gắn cờ \"hoạt động bất thường\" khi chạy nhiều tab: các tab nay khởi động LỆCH NHAU (giãn cách ngẫu nhiên) thay vì mở đồng loạt cùng lúc — bớt tín hiệu bot, giảm rủi ro bị limit tài khoản.\n- Khuyến nghị để hạn chế bị limit: chạy 1–2 tab và bật 'Chạy chậm (giống người thật)'.",
+  "version": "2026-07-19.118",
+  "notes": "- Thêm lựa chọn khi thư mục lưu đã có ảnh trùng tên: 'Ghi đè' (tạo mới đè lên ảnh cũ) hoặc 'Giữ ảnh cũ' (bỏ qua).\n- 'Chạy lại' kiểu mới: tích chọn nhiều ảnh trong bảng rồi bấm nút 'Chạy lại' ngay trên đầu cột — chỉ chạy lại đúng ảnh đã chọn.\n- Khi chạy lại mà ảnh tham chiếu bị thiếu trong thư mục, tool tự tạo lại ảnh tham chiếu đó trước rồi mới chạy ảnh.\n- Bước 'Ghi đè' khi tạo ảnh tham chiếu sẽ tạo lại từ đầu (theo thứ tự) thay vì dùng lại ảnh cũ.\n- Chạy nhiều tab khởi động lệch nhau, giảm nguy cơ bị Google gắn cờ 'hoạt động bất thường'.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "350dfeb947c78ed69cd21cdb4f392b16ded81b4b7dea7cfa0b80b46f7e0f3172"
+  "exe_sha256": "66950786c9e1033d7e5b909d40bfd651ada34e1abf28135b1a0ed1ff7a8d15eb"
 }
