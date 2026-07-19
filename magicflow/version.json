@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.121",
-  "notes": "- 'Chạy lại' nhanh hơn: nếu trình duyệt đang mở, tool DÙNG LẠI luôn trình duyệt + project + ảnh tham chiếu đã tải — chỉ gõ lại prompt các ảnh đã chọn, KHÔNG mở lại từ đầu.\n- Mở trình duyệt nhanh hơn trên máy chậm (bớt chờ vô ích lúc bấm START).\n- Ảnh tham chiếu tạo lại sẽ được cập nhật bản mới cho các ảnh khác dùng.\n- Nút 'Chạy lại' trên đầu cột đã canh thẳng hàng.",
+  "version": "2026-07-19.125",
+  "notes": "- Bảng kết quả: bấm tiêu đề cột 'Tải ảnh' để đưa ảnh LỖI/chưa tải lên đầu (bấm lần 2 về mặc định); nút 'Chọn ảnh lỗi' tích hết ảnh lỗi chỉ 1 click; giữ Shift bấm để chọn cả dải nhiều dòng.\n- Chạy lại: GIỮ NGUYÊN trạng thái các ảnh đã xong (không còn reset cả bảng); popup báo đúng thư mục lưu theo bước.\n- Tải ảnh về thử tới 5 lần (giảm báo lỗi oan dù ảnh đã tạo xong).\n- Bố trí lại trang Tiến trình cho gọn (đưa các bước lên trên, bỏ thanh trống thừa).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "847a1eb78d1675e5ccd579fa3aacf4c210504b919a5f1c7b6cfb6c9b8138a096"
+  "exe_sha256": "a684bb6cc277e93e7fa09824aebe627cc19b72c652f214ffb45236b4c40dc2d9"
 }
