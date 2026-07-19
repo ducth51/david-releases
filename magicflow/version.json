@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.128",
-  "notes": "- Chạy lại: cột 'Tải ảnh' của ảnh đang chạy lại về '--' đúng lúc (không còn hiện 'Đã tải' cũ khi ảnh chưa tải xong).\n- Sau khi chạy lại xong, nếu còn ảnh chưa chạy lần nào, app hỏi 'chạy tiếp không?' để chạy tiếp ngay (tái dùng trình duyệt đang mở, khỏi bắt đầu lại từ đầu).",
+  "version": "2026-07-19.130",
+  "notes": "- Khi áp cấu hình lên Google Flow chưa đủ, tool tự tải lại trình duyệt và thử lại tối đa 5 lần; nếu vẫn không được thì TẠM DỪNG và báo để bạn kiểm tra — không chạy tiếp với cấu hình có thể sai.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "d658a827430d972a159bf56cea63ab35902bd72b279012305734e8abbdfb2f1c"
+  "exe_sha256": "a3801b8ed29167b9e5cae495cc0377e17fab07af764dc3462a7e29c5fa72d796"
 }
