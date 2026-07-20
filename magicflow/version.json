@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-20.135",
-  "notes": "- Sửa lỗi hai ảnh khác nhau tải về CÙNG một hình (ảnh của scene trước bị lấy nhầm cho scene sau).\n- Sửa lỗi báo 'Thất bại' oan dù ảnh đã tạo xong trên Flow.\n- Khi một ảnh lỗi, phần mềm nay ghi rõ LÝ DO trong Log hệ thống (trước đây chỉ ghi 'Thất bại' nên không biết hỏng ở bước nào).\n- Cập nhật xong app tự mở lại được trên máy có chính sách bảo mật chặn script (trước đây phải mở tay).\n- Hộp thoại thông báo gọn lại, bỏ ký hiệu thừa trước tiêu đề.",
+  "version": "2026-07-20.137",
+  "notes": "- Cập nhật xong app TỰ MỞ LẠI được trên máy có chính sách bảo mật chặn (trước đây hiện lỗi 'Windows Script Host' rồi phải mở tay).\n- Log ghi rõ hơn nhiều: cảnh báo ngay nếu prompt gửi lên Flow bị thiếu chữ, ghi kết quả kiểm tra cập nhật, thời gian chạy từng ảnh.\n- Kết thúc mỗi lượt có dòng TỔNG KẾT: số ảnh đã tải, số ảnh lỗi và LÝ DO từng ảnh lỗi — không phải dò lại cả trang log.\n- Hộp thoại thông báo: tiêu đề canh giữa cho gọn gàng.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "5af77327caf386b231206ba706a5f61f1018779b53a262cf58dc8489fad234ab"
+  "exe_sha256": "80b283f6c0c7ebc49594cfb1be2541bea686f7c93a8010ccc8ac3750a6c6a8ae"
 }
