@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-20.144",
-  "notes": "- Sửa lỗi cột 'Tiến độ' hiện chung phần trăm của nhiều ảnh trên cùng một dòng (ví dụ '47% 99%'); nay mỗi dòng chỉ hiện phần trăm của chính nó.\n- Chạy nhanh hơn khi đặt 'Số lượng' 2/3/4 ở bước tạo ảnh tham chiếu: chỉ ảnh mẫu gốc phải chạy một mình, các ảnh còn lại vẫn gộp chạy cùng lúc (bản trước chạy từng cái một, chậm không cần thiết).\n- Khi thiếu ảnh mẫu để '@' vào prompt, phần mềm nói rõ nguyên nhân và cách xử lý: do ảnh khác trong cùng bước chưa tạo xong, hay do 'Bước 1: Tạo ảnh tham chiếu' chưa được chạy, hay do sai tên file / chưa có prompt cho nó.\n- Việc tạo project mới trên Flow ổn định hơn (mở tab mới thay vì quay lại trang chủ rồi tìm nút).",
+  "version": "2026-07-20.145",
+  "notes": "- Sửa lỗi bấm 'Chạy lại' cho một ảnh ở bước 'Ảnh/video' nhưng phần mềm vẫn tạo project mới trên Flow và tải lại toàn bộ ảnh tham chiếu — mất khoảng 20 giây thừa mỗi lần, và bỏ mất project đang dùng tốt.\n- Nay chỉ tạo project mới khi lượt chạy thật sự có tạo ảnh tham chiếu; chạy lại một ảnh riêng lẻ nhanh hơn hẳn.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "84916abed691d94f2f2a8a7108b6615a2eaca89bbf8643e25e158a41ff41aef8"
+  "exe_sha256": "e31c8e557c129fdd6fea4de0af1363c47cdf00a7492a670235a07fdb2d7c2b9f"
 }
