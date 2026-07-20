@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-19.133",
-  "notes": "- Sửa lỗi ảnh CUỐI của mỗi lượt chạy phải chờ tới 5 phút mới tải về, dù ảnh đã tạo xong từ lâu.\n- Toàn bộ hộp thoại thông báo nay hiển thị theo đúng giao diện của phần mềm (trước đây dùng hộp thoại mặc định của Windows, trông lạc lõng).\n- Trong lúc chờ tạo ảnh, phần mềm báo tiến độ đều đặn 30 giây/lần để bạn biết đang chờ gì (trước đây có thể im lặng nhiều phút liền).",
+  "version": "2026-07-20.135",
+  "notes": "- Sửa lỗi hai ảnh khác nhau tải về CÙNG một hình (ảnh của scene trước bị lấy nhầm cho scene sau).\n- Sửa lỗi báo 'Thất bại' oan dù ảnh đã tạo xong trên Flow.\n- Khi một ảnh lỗi, phần mềm nay ghi rõ LÝ DO trong Log hệ thống (trước đây chỉ ghi 'Thất bại' nên không biết hỏng ở bước nào).\n- Cập nhật xong app tự mở lại được trên máy có chính sách bảo mật chặn script (trước đây phải mở tay).\n- Hộp thoại thông báo gọn lại, bỏ ký hiệu thừa trước tiêu đề.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "5ac8c56a79d0101e65c60e9cd46df04ec6ddf252b49ee4a060ee315a1c4df5ee"
+  "exe_sha256": "5af77327caf386b231206ba706a5f61f1018779b53a262cf58dc8489fad234ab"
 }
