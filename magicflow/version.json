@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-20.137",
-  "notes": "- Cập nhật xong app TỰ MỞ LẠI được trên máy có chính sách bảo mật chặn (trước đây hiện lỗi 'Windows Script Host' rồi phải mở tay).\n- Log ghi rõ hơn nhiều: cảnh báo ngay nếu prompt gửi lên Flow bị thiếu chữ, ghi kết quả kiểm tra cập nhật, thời gian chạy từng ảnh.\n- Kết thúc mỗi lượt có dòng TỔNG KẾT: số ảnh đã tải, số ảnh lỗi và LÝ DO từng ảnh lỗi — không phải dò lại cả trang log.\n- Hộp thoại thông báo: tiêu đề canh giữa cho gọn gàng.",
+  "version": "2026-07-20.140",
+  "notes": "- QUAN TRỌNG: sửa lỗi khiến cả lượt chạy hỏng giữa chừng khi có một ảnh gặp sự cố (báo 'Lỗi worker').\n- Sửa lỗi khi đặt 'Số lượng' 2/3/4: các ảnh cần ảnh mẫu của ảnh khác trong cùng bước bị báo lỗi oan. Nay tool tự chạy tuần tự để chờ ảnh mẫu tạo xong.\n- Sửa lỗi chạy lại ảnh tham chiếu bị lấy chính bản CŨ của nó làm mẫu, khiến ảnh mới gần như y hệt ảnh cũ.\n- Lượt chạy có bước 'Ảnh tham chiếu' nay tạo project MỚI trên Flow, tránh dùng nhầm ảnh mẫu cũ trùng tên.\n- Khi một ảnh lỗi, log ghi rõ lý do và nói rõ ảnh mẫu đang thiếu do scene nào tạo ra.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "80b283f6c0c7ebc49594cfb1be2541bea686f7c93a8010ccc8ac3750a6c6a8ae"
+  "exe_sha256": "4dc00413171f30b6a29de5bdf3ab863eb4cbe8eef823d066b28c5e24f9b55dac"
 }
