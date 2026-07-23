@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-23.159",
-  "notes": "- Thư mục xem ảnh (ảnh tham chiếu & ảnh/video tải về): ảnh hiển thị TO hơn và dàn đều kín màn hình thay vì bị nhỏ dồn một góc; lăn chuột cuộn được thay vì phải kéo thanh trượt.\n- Bấm phóng to cửa sổ hoặc chuyển qua lại giữa các tab (Cài đặt / Tiến trình…) MƯỢT hơn hẳn — không còn giật/khựng.\n- Giới hạn \"Số Tab\" tối đa còn 4 (bỏ mức quá cao dễ bị Google gắn cờ hoạt động bất thường).\n- Cập nhật lại các đường dẫn ở trang Cộng đồng & Hỗ trợ (Nhóm Zalo, Fanpage, YouTube, Website).",
+  "version": "2026-07-23.160",
+  "notes": "- Sửa lỗi bấm \"Dự án mới\" không vào được project (phần mềm đứng im ở đầu lượt chạy) — do Google Flow đổi bố cục trang chủ khiến tool bấm trúng dòng tiêu đề thay vì đúng nút; nay đã nhận đúng nút \"Dự án mới\".\n- Thư mục xem ảnh (ảnh tham chiếu & ảnh/video tải về): ảnh hiển thị TO hơn và dàn đều kín màn hình thay vì bị nhỏ dồn một góc; lăn chuột cuộn được thay vì phải kéo thanh trượt.\n- Bấm phóng to cửa sổ hoặc chuyển qua lại giữa các tab (Cài đặt / Tiến trình…) MƯỢT hơn hẳn — không còn giật/khựng.\n- Giới hạn \"Số Tab\" tối đa còn 4 (bỏ mức quá cao dễ bị Google gắn cờ hoạt động bất thường).\n- Cập nhật lại các đường dẫn ở trang Cộng đồng & Hỗ trợ (Nhóm Zalo, Fanpage, YouTube, Website).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "1d980ff3eb3b5fcea6dd462d47314f4a6e209950f8784ad9942d5509a8375dd1"
+  "exe_sha256": "b38ac2d7fefa5e31703386f869ed80ec52b4a9f6ebe2f476ea6bf91e6f14dedd"
 }
