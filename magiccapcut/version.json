@@ -1,6 +1,6 @@
 {
-  "version": "1.0.10",
-  "notes": "- Tính năng mới: Audio → Text (trong Tiện Ích Video) — chuyển file âm thanh (MP3/WAV/M4A...) thành văn bản chi tiết, TỰ PHÂN BIỆT từng người nói kèm mốc thời gian. Xử lý ngay trên máy, không cần API key. Lần đầu dùng, app tự tải bộ nhận diện giọng nói (chỉ 1 lần).\n- Giao diện: hàng nút Tiện Ích Video gọn lại, hiển thị đủ 7 tab con không tràn cửa sổ.",
+  "version": "1.0.11",
+  "notes": "- Sửa lỗi quan trọng: Tạo phụ đề SRT và Audio → Text nay chạy lại được (trước đây báo lỗi kỹ thuật, không tạo được kết quả trên bản cài).\n- Model nhận dạng giọng nói (Whisper) nay tải 1 lần và GIỮ LẠI qua các lần cập nhật — không phải tải lại sau mỗi bản mới, và hết lỗi tải khi đường dẫn cài quá dài.\n- Sửa khung nhật ký (log) bị chữ trắng trên nền trắng ở giao diện tối — nay đọc được.\n- Hộp thoại lưu file SRT tự điền sẵn tên gợi ý, hiện đúng nút Save (khỏi phải tự gõ).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "c20fb8bf66c1f42138df24d539336ecbf618725aefa89f402d2ba3427f1b4649"
+  "exe_sha256": "dc95826a28afc52874b517b63ac644537a4539bb6bdd076cc3f9b5073b45ea93"
 }
