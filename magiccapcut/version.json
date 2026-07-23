@@ -1,6 +1,6 @@
 {
-  "version": "1.0.11",
-  "notes": "- Sửa lỗi quan trọng: Tạo phụ đề SRT và Audio → Text nay chạy lại được (trước đây báo lỗi kỹ thuật, không tạo được kết quả trên bản cài).\n- Model nhận dạng giọng nói (Whisper) nay tải 1 lần và GIỮ LẠI qua các lần cập nhật — không phải tải lại sau mỗi bản mới, và hết lỗi tải khi đường dẫn cài quá dài.\n- Sửa khung nhật ký (log) bị chữ trắng trên nền trắng ở giao diện tối — nay đọc được.\n- Hộp thoại lưu file SRT tự điền sẵn tên gợi ý, hiện đúng nút Save (khỏi phải tự gõ).",
+  "version": "1.0.12",
+  "notes": "- Trang \"Cộng Đồng & Hỗ Trợ\" được bố trí lại gọn gàng, chuyên nghiệp hơn: logo, tiêu đề và các liên kết nay căn giữa màn hình, các mục thẳng hàng và cách đều nhau.\n- Cập nhật lại các liên kết cộng đồng (Nhóm Zalo hỗ trợ, Fanpage, YouTube, Website chính thức của Rảnh Tay) trỏ đúng địa chỉ mới nhất.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "dc95826a28afc52874b517b63ac644537a4539bb6bdd076cc3f9b5073b45ea93"
+  "exe_sha256": "6432dcb92257a5ec06e38b09374698aac7f7fc52cf0e3dbbc21da0feb1a19844"
 }
