@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-23.150",
+  "version": "2026-07-23.151",
   "notes": "- Sửa lỗi một số ảnh tạo xong nhưng báo \"không tải được\" (ảnh nằm ngoài vùng nhìn của trình duyệt) — nay tự cuộn ảnh vào giữa màn hình trước khi tải.\n- Chạy lại một ảnh tham chiếu bị lỗi nhanh hơn hẳn: dùng lại project đang mở thay vì tạo mới và tải lại toàn bộ ảnh tham chiếu.\n- Cột \"Tiến độ\" hiển thị gọn hơn; phần trăm bám sát tiến trình thật (ảnh tạo xong không còn kẹt ở 13-14%).\n- Vài cải thiện hiển thị khi bấm START và thông báo khi chạy lại.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "696b754d38742976c9f12a0e3996a528a68e4f7acd75723577161dc3540729af"
+  "exe_sha256": "9255df47bdad0d89c9bf205469d0a0de8d529bb9fd8f5143da4c7a7304972d48"
 }
