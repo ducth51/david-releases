@@ -5,16 +5,13 @@
  * (kiểm chứng: cùng trình duyệt, fetch từ localhost thành công, từ workers.dev
  * báo "Failed to fetch"). Cho Worker tải hộ ở phía server thì không còn ràng
  * buộc CORS, và trình duyệt chỉ gọi về chính origin của mình.
- *
- * File model bất biến nên được cache tại edge — Hugging Face chỉ bị gọi ở lần
- * miss đầu tiên.
  */
 const UPSTREAM = 'https://huggingface.co/rhasspy/piper-voices/resolve/main/'
 const PREFIX = '/api/model/'
 const ONE_YEAR = 60 * 60 * 24 * 365
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url)
 
     // Mọi thứ ngoài /api/model/ đều là file tĩnh
@@ -30,31 +27,43 @@ export default {
       return new Response('Not Found', { status: 404 })
     }
 
-    const cache = caches.default
-    const cacheKey = new Request(url.toString(), { method: 'GET' })
+    // Chuyển tiếp Range để trình duyệt tải tiếp được khi đứt giữa chừng
+    const forward = new Headers()
+    const range = request.headers.get('Range')
+    if (range) forward.set('Range', range)
 
-    const cached = await cache.match(cacheKey)
-    if (cached) return cached
-
+    // Dùng cache của chính fetch (cf.cacheEverything) thay vì Cache API +
+    // response.clone(): clone buộc Worker đệm song song hai nhánh, với file
+    // 60 MB rất dễ chạm trần bộ nhớ 128 MB và bị cắt luồng giữa chừng.
     const upstream = await fetch(target.href, {
+      method: request.method,
+      headers: forward,
       cf: { cacheEverything: true, cacheTtl: ONE_YEAR },
     })
-    if (!upstream.ok) {
+
+    if (!upstream.ok && upstream.status !== 206) {
       return new Response(`Không tải được model (upstream ${upstream.status})`, {
         status: upstream.status === 404 ? 404 : 502,
       })
     }
 
-    const response = new Response(upstream.body, upstream)
-    response.headers.set('Cache-Control', `public, max-age=${ONE_YEAR}, immutable`)
-    response.headers.set('Access-Control-Allow-Origin', '*')
-    response.headers.set(
-      'Content-Type',
-      target.pathname.endsWith('.json') ? 'application/json; charset=utf-8' : 'application/octet-stream'
-    )
-    response.headers.delete('set-cookie')
+    // Dựng header mới thay vì sao chép của upstream: Workers tự giải nén phần
+    // thân, nên Content-Encoding/Content-Length của Hugging Face không còn khớp
+    // với số byte thực gửi đi — trình duyệt sẽ báo "network error".
+    const headers = new Headers({
+      'Content-Type': target.pathname.endsWith('.json')
+        ? 'application/json; charset=utf-8'
+        : 'application/octet-stream',
+      'Cache-Control': `public, max-age=${ONE_YEAR}, immutable`,
+      'Access-Control-Allow-Origin': '*',
+      'Accept-Ranges': 'bytes',
+    })
+    // Giữ Content-Length để thanh phần trăm lúc tải model chạy đúng
+    for (const name of ['Content-Length', 'Content-Range', 'ETag']) {
+      const value = upstream.headers.get(name)
+      if (value) headers.set(name, value)
+    }
 
-    ctx.waitUntil(cache.put(cacheKey, response.clone()))
-    return response
+    return new Response(upstream.body, { status: upstream.status, headers })
   },
 }
