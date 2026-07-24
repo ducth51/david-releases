@@ -1,13 +1,17 @@
 {
-  // Cấu hình deploy dạng Worker chỉ-phát-file-tĩnh (không có mã server).
-  // Cloudflare chạy `npx wrangler deploy` từ thư mục này sau khi build xong.
+  // Worker phát file tĩnh từ dist/ và proxy model tại /api/model/*.
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "text2speed",
+  "main": "worker/index.js",
   "compatibility_date": "2026-07-24",
   "assets": {
     "directory": "./dist",
-    // Mọi đường dẫn không khớp file đều trả index.html — nhờ vậy /en, /id,
+    "binding": "ASSETS",
+    // Đường dẫn không khớp file nào đều trả index.html — nhờ vậy /en, /id,
     // /ms, /asr mở thẳng hoặc F5 đều chạy thay vì 404.
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    // Chỉ /api/* mới đi qua mã Worker; file tĩnh vẫn được phục vụ trực tiếp
+    // nên không tiêu tốn lượt gọi Worker.
+    "run_worker_first": ["/api/*"]
   }
 }

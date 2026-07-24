@@ -60,6 +60,33 @@ Việc SPA fallback do khoá `not_found_handling` trong `wrangler.jsonc` đảm 
 Nếu chuyển sang Cloudflare Pages thì làm ngược lại: thêm `_redirects` và xoá
 `wrangler.jsonc`.
 
+### Vì sao model phải đi qua proxy
+
+Hugging Face **không trả header CORS cho origin `*.workers.dev`**. Kiểm chứng:
+cùng một trình duyệt, cùng một URL, cùng thời điểm —
+
+| Origin | Kết quả |
+| --- | --- |
+| `http://localhost:5173` | 200, `type: cors` |
+| `https://<tên>.workers.dev` | `TypeError: Failed to fetch` |
+
+Chế độ `no-cors` vẫn đi được (nhận opaque response) nên host hoàn toàn truy cập
+được — chỉ là header CORS không được cấp cho origin đó. Phía server thì bình
+thường: `fetch` từ Node với đúng `Origin` ấy vẫn nhận đủ header.
+
+Đo thêm từ chính origin bị lỗi: jsDelivr, `raw.githubusercontent.com` và
+`api.github.com` đều có CORS; Hugging Face và **GitHub Release assets** thì không.
+
+Vì vậy [worker/index.js](worker/index.js) tải hộ ở phía server rồi phát lại dưới
+cùng origin. Trình duyệt chỉ gọi về chính nó nên CORS không còn liên quan. File
+model bất biến nên được cache tại edge — Hugging Face chỉ bị gọi ở lần miss đầu.
+
+Chỉ `/api/*` mới đi qua mã Worker (`run_worker_first`), file tĩnh vẫn được phục
+vụ trực tiếp nên không tiêu tốn lượt gọi Worker.
+
+**Nâng cấp về sau:** nếu muốn tự chủ hoàn toàn, đưa model lên Cloudflare R2
+(10 GB miễn phí, egress miễn phí) rồi đổi `UPSTREAM` trong `worker/index.js`.
+
 ### Vì sao phải có bước dọn build
 
 Cloudflare Pages **chặn cứng file lớn hơn 25 MiB**. Gói build có ba file WASM

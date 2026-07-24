@@ -59,7 +59,9 @@ export async function resolveModelUrls(lang, name) {
   const voice = (manifest.languages?.[lang] ?? []).find((v) => v.name === name)
   if (!voice) throw new Error(`Không tìm thấy model "${name}" cho ngôn ngữ "${lang}"`)
 
-  const base = `${manifest.base || REMOTE_BASE}/${voice.path}`
+  // REMOTE_BASE thắng manifest.base: manifest ghi nguồn gốc (Hugging Face),
+  // còn biến môi trường ghi nơi trình duyệt thực sự nên tải về (proxy).
+  const base = `${REMOTE_BASE || manifest.base}/${voice.path}`
   return { model: `${base}.onnx`, config: `${base}.onnx.json` }
 }
 
