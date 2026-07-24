@@ -50,6 +50,16 @@ const idleClass =
           Nhận dạng giọng nói
           <span class="font-medium text-gray-500 dark:text-gray-400">ASR</span>
         </RouterLink>
+
+        <RouterLink
+          to="/log"
+          role="tab"
+          class="px-3 py-2 rounded-lg transition-colors border border-transparent"
+          :class="$route.path === '/log' ? activeClass : idleClass"
+        >
+          Log
+          <span class="font-medium text-gray-500 dark:text-gray-400">DEBUG</span>
+        </RouterLink>
       </nav>
     </div>
   </div>

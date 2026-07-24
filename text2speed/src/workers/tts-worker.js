@@ -11,6 +11,7 @@ import * as ort from 'onnxruntime-web'
 import { phonemize, warmUpEspeak } from '../lib/espeak.js'
 import { cachedFetch } from '../lib/model-cache.js'
 import { resolveModelUrls } from '../lib/data-source.js'
+import { logInfo, logError } from '../lib/logger.js'
 import { normalizeVietnamese, chunkText, cleanText } from '../lib/vietnamese.js'
 import { RawAudio, concatAudio } from '../lib/audio.js'
 
@@ -138,7 +139,9 @@ class PiperTts {
 
 async function init(model, lang) {
   try {
+    logInfo('tts-worker', `Nạp model "${model}" (${lang || 'vi'})`)
     const urls = await resolveModelUrls(lang || 'vi', model)
+    logInfo('tts-worker', 'URL đã phân giải', urls)
     tts = await PiperTts.from_pretrained(
       urls.model,
       urls.config,
@@ -147,12 +150,24 @@ async function init(model, lang) {
       }
     )
     // Nạp sẵn eSpeak song song để lần Generate đầu không phải chờ biên dịch WASM
-    warmUpEspeak()
-    self.postMessage({ status: 'ready', voices: tts.getSpeakers(), sampleRate: tts.sampleRate })
+    warmUpEspeak().then((ok) =>
+      ok ? logInfo('espeak', 'Đã nạp xong WASM') : logError('espeak', 'Nạp WASM thất bại')
+    )
+    const voices = tts.getSpeakers()
+    logInfo('tts-worker', `Model sẵn sàng — ${voices.length} giọng, ${tts.sampleRate} Hz`)
+    self.postMessage({ status: 'ready', voices, sampleRate: tts.sampleRate })
   } catch (err) {
+    logError('tts-worker', 'Nạp model thất bại', { error: String(err), stack: err?.stack })
     self.postMessage({ status: 'error', data: err?.message || String(err) })
   }
 }
+
+self.addEventListener('error', (e) =>
+  logError('tts-worker', 'Lỗi không bắt được', { message: e.message, filename: e.filename, lineno: e.lineno })
+)
+self.addEventListener('unhandledrejection', (e) =>
+  logError('tts-worker', 'Promise bị từ chối', { reason: String(e.reason) })
+)
 
 self.addEventListener('message', async (event) => {
   const { type, text, voice, speed, model, lang } = event.data || {}

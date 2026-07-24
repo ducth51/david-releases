@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TtsView from './views/TtsView.vue'
 import AsrView from './views/AsrView.vue'
+import LogView from './views/LogView.vue'
 
 const routes = [
   { path: '/', name: 'vi', component: TtsView, props: { lang: 'vi' } },
@@ -8,6 +9,7 @@ const routes = [
   { path: '/id', name: 'id', component: TtsView, props: { lang: 'id' } },
   { path: '/ms', name: 'ms', component: TtsView, props: { lang: 'ms' } },
   { path: '/asr', name: 'asr', component: AsrView },
+  { path: '/log', name: 'log', component: LogView },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 

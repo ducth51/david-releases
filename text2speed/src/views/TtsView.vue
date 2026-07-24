@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import DemoSamples from '../components/DemoSamples.vue'
 import { addHistory } from '../lib/history.js'
 import { listModels } from '../lib/data-source.js'
+import { ingest, logInfo, logError } from '../lib/logger.js'
 
 const props = defineProps({ lang: { type: String, default: 'vi' } })
 
@@ -57,8 +58,12 @@ function initWorker(model) {
   progress.value = 0
   errorMessage.value = ''
 
+  logInfo('tts', `Khởi tạo worker cho model "${model}"`, { lang: props.lang })
   worker = new Worker(new URL('../workers/tts-worker.js', import.meta.url), { type: 'module' })
   worker.addEventListener('message', onWorkerMessage)
+  worker.addEventListener('error', (e) =>
+    logError('tts', 'Worker sập', { message: e.message, filename: e.filename, lineno: e.lineno })
+  )
   worker.postMessage({ type: 'init', model, lang: props.lang })
 }
 
@@ -66,6 +71,10 @@ const streamedChunks = []
 
 function onWorkerMessage(event) {
   const msg = event.data
+
+  // Log phát từ trong Worker — nạp vào cùng store để tab Log thấy được
+  if (msg.status === 'log') return ingest(msg.entry)
+
   switch (msg.status) {
     case 'progress':
       progress.value = msg.progress ?? 0
@@ -103,6 +112,7 @@ function onWorkerMessage(event) {
     case 'error':
       status.value = 'error'
       errorMessage.value = msg.data || 'Đã xảy ra lỗi không xác định'
+      logError('tts', 'Worker báo lỗi', { message: msg.data, model: selectedModel.value })
       break
   }
 }

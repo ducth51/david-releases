@@ -61,6 +61,12 @@ export default {
       if (value) headers.set(name, value)
     }
 
+    // Thông tin chẩn đoán cho tab Log — cho biết upstream thực sự trả gì
+    headers.set('X-Upstream-Status', String(upstream.status))
+    headers.set('X-Upstream-Encoding', upstream.headers.get('Content-Encoding') || 'none')
+    headers.set('X-Upstream-Length', upstream.headers.get('Content-Length') || 'none')
+    headers.set('Access-Control-Expose-Headers', 'X-Upstream-Status,X-Upstream-Encoding,X-Upstream-Length')
+
     return new Response(upstream.body, { status: upstream.status, headers })
   },
 }
