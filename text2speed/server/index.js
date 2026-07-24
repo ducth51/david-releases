@@ -1,4 +1,4 @@
-import express from 'express'
+﻿import express from 'express'
 import compression from 'compression'
 import cors from 'cors'
 import fs from 'node:fs'
@@ -161,7 +161,7 @@ if (fs.existsSync(DIST_DIR)) {
 }
 
 app.listen(PORT, () => {
-  console.log(`NGHI-TTS API  →  http://localhost:${PORT}`)
+  console.log(`Text To Speed API  →  http://localhost:${PORT}`)
   console.log(`  models: ${MODELS_DIR}`)
   console.log(`  demo:   ${DEMO_DIR}`)
 })

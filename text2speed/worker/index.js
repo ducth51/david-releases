@@ -32,14 +32,11 @@ export default {
     const range = request.headers.get('Range')
     if (range) forward.set('Range', range)
 
-    // Dùng cache của chính fetch (cf.cacheEverything) thay vì Cache API +
-    // response.clone(): clone buộc Worker đệm song song hai nhánh, với file
-    // 60 MB rất dễ chạm trần bộ nhớ 128 MB và bị cắt luồng giữa chừng.
-    const upstream = await fetch(target.href, {
-      method: request.method,
-      headers: forward,
-      cf: { cacheEverything: true, cacheTtl: ONE_YEAR },
-    })
+    // KHÔNG bật cf.cacheEverything: nó buộc edge nuốt trọn object vào cache,
+    // với file 63 MB thì chạm trần bộ nhớ 128 MB của Worker và luồng bị cắt
+    // giữa chừng (đo được: 28 MB qua, 63 MB chết ở ~14%). Việc cache đã có
+    // Cache Storage của trình duyệt lo — xem src/lib/model-cache.js.
+    const upstream = await fetch(target.href, { method: request.method, headers: forward })
 
     if (!upstream.ok && upstream.status !== 206) {
       return new Response(`Không tải được model (upstream ${upstream.status})`, {

@@ -7,6 +7,10 @@ import HistoryPanel from './HistoryPanel.vue'
 const { isDark, toggle } = useTheme()
 const showShare = ref(false)
 const showHistory = ref(false)
+
+// Hai hằng số này do Vite thay lúc build (xem vite.config.js)
+const version = __APP_VERSION__
+const buildTime = new Date(__BUILD_TIME__).toLocaleString('vi-VN')
 </script>
 
 <template>
@@ -17,7 +21,17 @@ const showHistory = ref(false)
       <div class="flex items-center gap-2">
         <div class="text-3xl">🗣️</div>
         <div>
-          <h1 class="text-xl font-bold bg-gradient-to-r text-blue-800 dark:text-blue-500">NGHI-TTS</h1>
+          <div class="flex items-baseline gap-2">
+            <h1 class="text-xl font-bold bg-gradient-to-r text-blue-800 dark:text-blue-500">
+              Text To Speed
+            </h1>
+            <span
+              class="px-1.5 py-0.5 rounded-md text-[0.65rem] font-mono font-medium bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+              :title="`Bản dựng lúc ${buildTime}`"
+            >
+              v{{ version }}
+            </span>
+          </div>
           <p class="text-sm text-muted-foreground hidden sm:block">
             Local text-to-speech in your browser
           </p>

@@ -1,7 +1,7 @@
 {
   "name": "nghi-tts-clone",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "concurrently -n server,web -c blue,magenta \"node scripts/dev-server.js\" \"vite\"",

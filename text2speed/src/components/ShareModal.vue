@@ -1,4 +1,4 @@
-<script setup>
+﻿<script setup>
 import { ref } from 'vue'
 
 defineEmits(['close'])
@@ -19,7 +19,7 @@ async function copyLink() {
 async function nativeShare() {
   if (!navigator.share) return copyLink()
   try {
-    await navigator.share({ title: 'NGHI-TTS', text: 'Chuyển văn bản thành giọng nói ngay trong trình duyệt', url })
+    await navigator.share({ title: 'Text To Speed', text: 'Chuyển văn bản thành giọng nói ngay trong trình duyệt', url })
   } catch {
     /* người dùng huỷ */
   }
@@ -29,7 +29,7 @@ const targets = [
   { label: 'Facebook', href: (u) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(u)}` },
   { label: 'X', href: (u) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(u)}` },
   { label: 'Telegram', href: (u) => `https://t.me/share/url?url=${encodeURIComponent(u)}` },
-  { label: 'Email', href: (u) => `mailto:?subject=NGHI-TTS&body=${encodeURIComponent(u)}` },
+  { label: 'Email', href: (u) => `mailto:?subject=Text%20To%20Speed&body=${encodeURIComponent(u)}` },
 ]
 </script>
 
@@ -40,7 +40,7 @@ const targets = [
   >
     <div class="w-full max-w-md rounded-2xl bg-white dark:bg-gray-900 shadow-2xl border border-gray-200 dark:border-gray-700 p-6">
       <div class="flex items-start justify-between mb-4">
-        <h2 class="text-lg font-bold text-gray-800 dark:text-gray-100">Chia sẻ NGHI-TTS</h2>
+        <h2 class="text-lg font-bold text-gray-800 dark:text-gray-100">Chia sẻ Text To Speed</h2>
         <button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200" @click="$emit('close')">✕</button>
       </div>
 
