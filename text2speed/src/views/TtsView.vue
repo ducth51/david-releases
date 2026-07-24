@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import DemoSamples from '../components/DemoSamples.vue'
+import ModelInfoModal from '../components/ModelInfoModal.vue'
 import { addHistory } from '../lib/history.js'
 import { listModels } from '../lib/data-source.js'
 import { ingest, logInfo, logError } from '../lib/logger.js'
@@ -19,6 +20,7 @@ const progress = ref(0)
 const errorMessage = ref('')
 const audioUrl = ref('')
 const copied = ref(false)
+const showModelInfo = ref(false)
 
 let worker = null
 
@@ -222,7 +224,19 @@ onBeforeUnmount(() => {
         <!-- Chọn model / giọng / tốc độ -->
         <div class="grid gap-4 sm:grid-cols-2">
           <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Model:</label>
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Model:</label>
+              <button
+                type="button"
+                class="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                @click="showModelInfo = true"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Chi tiết
+              </button>
+            </div>
             <select
               v-model="selectedModel"
               class="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 px-3 py-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -295,5 +309,13 @@ onBeforeUnmount(() => {
     </div>
 
     <DemoSamples v-if="lang === 'vi'" @use-text="useDemo" />
+
+    <ModelInfoModal
+      v-if="showModelInfo"
+      :lang="lang"
+      :selected="selectedModel"
+      @close="showModelInfo = false"
+      @choose="selectedModel = $event"
+    />
   </main>
 </template>

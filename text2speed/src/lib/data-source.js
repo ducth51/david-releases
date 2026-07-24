@@ -48,6 +48,68 @@ export async function listModels(lang) {
   return (manifest.languages?.[lang] ?? []).map((voice) => voice.name)
 }
 
+/** Suy ra mức chất lượng từ đường dẫn Piper (…-medium, …/high/…). */
+function parseQuality(path = '') {
+  return path.match(/(x_low|low|medium|high)(?:\/|$|-)/)?.[1] ?? null
+}
+
+const specCache = new Map()
+
+/**
+ * Đọc thông số thật của một model từ file .onnx.json (nhỏ, ~5 KB) — tần số lấy
+ * mẫu, số giọng. Lấy trực tiếp từ cấu hình nên luôn khớp với model thật, không
+ * phải số liệu gõ tay.
+ */
+export async function fetchModelSpecs(lang, name) {
+  const key = `${lang}/${name}`
+  if (specCache.has(key)) return specCache.get(key)
+
+  const promise = (async () => {
+    const { config, model } = await resolveModelUrls(lang, name)
+    const specs = { sampleRate: null, speakers: null, sizeBytes: null }
+    try {
+      const cfg = await (await fetch(config)).json()
+      specs.sampleRate = cfg.audio?.sample_rate ?? null
+      specs.speakers = cfg.num_speakers ?? 1
+    } catch {
+      /* để null nếu đọc lỗi */
+    }
+    try {
+      // Range tí hon để lấy tổng dung lượng qua Content-Range, không tải cả file
+      const res = await fetch(model, { headers: { Range: 'bytes=0-0' } })
+      const total = res.headers.get('Content-Range')?.match(/\/(\d+)$/)?.[1]
+      if (total) specs.sizeBytes = Number(total)
+      res.body?.cancel?.()
+    } catch {
+      /* bỏ qua dung lượng nếu lỗi */
+    }
+    return specs
+  })()
+
+  specCache.set(key, promise)
+  return promise
+}
+
+/**
+ * Danh sách giọng kèm metadata tĩnh (chất lượng, ghi chú, cờ khuyến nghị) để
+ * dựng bảng so sánh. Thông số động (tần số, số giọng) lấy riêng qua
+ * fetchModelSpecs để bảng hiện dần, không chặn lúc mở.
+ * @returns {Promise<Array<{name, quality, recommended, note}>>}
+ */
+export async function listVoices(lang) {
+  if (!isStatic) {
+    const names = await listModels(lang)
+    return names.map((name) => ({ name, quality: null, recommended: false, note: '' }))
+  }
+  const manifest = await loadManifest()
+  return (manifest.languages?.[lang] ?? []).map((v) => ({
+    name: v.name,
+    quality: parseQuality(v.path),
+    recommended: Boolean(v.recommended),
+    note: v.note || '',
+  }))
+}
+
 /** @returns {Promise<{model: string, config: string}>} URL file .onnx và .onnx.json */
 export async function resolveModelUrls(lang, name) {
   if (!isStatic) {
