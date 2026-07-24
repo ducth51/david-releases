@@ -34,22 +34,31 @@ npm run dev
 Mở <http://localhost:5173>. Vite ở cổng 5173, API ở cổng 3000 (Vite proxy `/api`
 sang đó). Muốn chạy bản build tự host: `npm run build && npm start`.
 
-## Deploy tĩnh lên Cloudflare Pages
+## Deploy tĩnh lên Cloudflare
 
 ```bash
-npm run build          # sinh manifest → vite build → dọn & kiểm tra dung lượng
-npx vite preview       # thử tại http://localhost:4173 trước khi đẩy lên
+npm run build              # sinh manifest → vite build → dọn & kiểm tra dung lượng
+npx wrangler deploy --dry-run   # kiểm tra cấu hình, không deploy thật
+npx vite preview           # xem thử tại http://localhost:4173
 ```
 
-Cấu hình trên dashboard Cloudflare Pages:
+Dự án deploy dạng **Worker chỉ phát file tĩnh**, cấu hình trong
+[wrangler.jsonc](wrangler.jsonc). Thiết lập trên dashboard:
 
 | Mục | Giá trị |
 | --- | --- |
 | Build command | `npm run build` |
-| Output directory | `dist` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `text2speed` *(nếu code nằm trong thư mục con của repo)* |
 
-Không cần thiết lập biến môi trường trên dashboard — chúng nằm sẵn trong
+Không cần khai báo biến môi trường trên dashboard — chúng nằm sẵn trong
 [.env.production](.env.production).
+
+**Không dùng `public/_redirects`.** Workers static assets kiểm tra file này chặt
+hơn Pages và từ chối luật `/* /index.html 200` với lỗi *"Infinite loop detected"*.
+Việc SPA fallback do khoá `not_found_handling` trong `wrangler.jsonc` đảm nhiệm.
+Nếu chuyển sang Cloudflare Pages thì làm ngược lại: thêm `_redirects` và xoá
+`wrangler.jsonc`.
 
 ### Vì sao phải có bước dọn build
 
@@ -107,7 +116,7 @@ scripts/
   build-manifest.js      sinh public/models.json + public/demo/ (bản tĩnh)
   prune-build.js         dọn WASM đã lên CDN + chặn file > 25 MiB
 server/index.js          API + phục vụ dist/ (chỉ dùng khi tự host)
-public/_redirects        SPA fallback cho Cloudflare Pages
+wrangler.jsonc           cấu hình deploy Worker static assets
 models/                  <tên>.onnx + <tên>.onnx.json (tiếng Việt)
 models/<lang>/           model cho các ngôn ngữ khác
 models-asr/<tên model>/  model Whisper dạng ONNX (tuỳ chọn)

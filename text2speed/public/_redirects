@@ -1,3 +1,0 @@
-# SPA fallback cho Cloudflare Pages — không có dòng này thì mở thẳng
-# /en, /id, /ms hay /asr (hoặc F5 tại các route đó) sẽ trả về 404.
-/*  /index.html  200
