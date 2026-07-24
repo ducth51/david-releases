@@ -8,9 +8,16 @@
       { "name": "vivos", "path": "vi/vi_VN/vivos/x_low/vi_VN-vivos-x_low" }
     ],
     "en": [
-      { "name": "amy", "path": "en/en_US/amy/medium/en_US-amy-medium" },
-      { "name": "libritts_r", "path": "en/en_US/libritts_r/medium/en_US-libritts_r-medium" },
-      { "name": "alan", "path": "en/en_GB/alan/medium/en_GB-alan-medium" }
+      { "name": "lessac (US, cao)", "path": "en/en_US/lessac/high/en_US-lessac-high" },
+      { "name": "ryan (US nam, cao)", "path": "en/en_US/ryan/high/en_US-ryan-high" },
+      { "name": "hfc_female (US nữ)", "path": "en/en_US/hfc_female/medium/en_US-hfc_female-medium" },
+      { "name": "hfc_male (US nam)", "path": "en/en_US/hfc_male/medium/en_US-hfc_male-medium" },
+      { "name": "kristin (US nữ)", "path": "en/en_US/kristin/medium/en_US-kristin-medium" },
+      { "name": "amy (US nữ)", "path": "en/en_US/amy/medium/en_US-amy-medium" },
+      { "name": "libritts_r (US, nhiều giọng)", "path": "en/en_US/libritts_r/medium/en_US-libritts_r-medium" },
+      { "name": "cori (GB nữ, cao)", "path": "en/en_GB/cori/high/en_GB-cori-high" },
+      { "name": "jenny (GB nữ)", "path": "en/en_GB/jenny_dioco/medium/en_GB-jenny_dioco-medium" },
+      { "name": "alan (GB nam)", "path": "en/en_GB/alan/medium/en_GB-alan-medium" }
     ],
     "id": [{ "name": "news_tts", "path": "id/id_ID/news_tts/medium/id_ID-news_tts-medium" }],
     "ms": []
