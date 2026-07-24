@@ -1,0 +1,14 @@
+node_modules/
+dist/
+
+# Model rất nặng — tải bằng `npm run fetch:models`
+models/
+models-asr/
+
+# Audio demo (server/demo/*.wav) CÓ commit vào repo — tổng ~600 KB.
+# Máy build của Cloudflare không có model để tự sinh lại, không commit thì
+# bảng Demo Samples trên bản deploy sẽ trống.
+
+# Sinh ra bởi `npm run build` (scripts/build-manifest.js)
+public/models.json
+public/demo/

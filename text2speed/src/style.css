@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/* Dark mode điều khiển bằng class trên <html>, không theo media query */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans antialiased;
+}
+
+.text-muted-foreground {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+/* Thanh cuộn mảnh cho vùng văn bản và lịch sử */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
