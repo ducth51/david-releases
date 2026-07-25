@@ -25,10 +25,11 @@ Trình duyệt (Web Worker)                    Nguồn dữ liệu
 │  eSpeak NG (WASM) → IPA │ ◄────────────── │ Hugging Face          │
 │  onnxruntime-web → VITS │   qua proxy     │ (rhasspy/piper-voices)│
 │  → WAV                   │                 └──────────────────────┘
-└─────────────────────────┘
-        ▲  WASM từ jsDelivr CDN
-        │
-   Vue 3 UI (Vite + Tailwind v4)
+└─────────────────────────┘                 ┌──────────────────────┐
+        ▲  WASM từ jsDelivr CDN             │ raw.githubusercontent │
+        │                                    │ (giọng tự host, CORS  │
+   Vue 3 UI (Vite + Tailwind v4)             │ sẵn — không qua proxy)│
+                                              └──────────────────────┘
 ```
 
 - **Front-end:** Vue 3 + Vue Router + Vite 6 + Tailwind v4
@@ -74,10 +75,13 @@ src/
     ShareModal.vue     chia sẻ link
     HistoryPanel.vue   lịch sử audio (IndexedDB)
   lib/
-    data-source.js     ★ phân giải URL model/demo theo chế độ; listVoices, fetchModelSpecs
-    vietnamese.js      chuẩn hoá số/ngày/giờ/tiền tệ/%/số La Mã → chữ; cắt câu
-    espeak.js          eSpeak NG WASM → IPA (thay 'phonemizer' vì gói đó chỉ có tiếng Anh)
-    audio.js           ghép PCM, chuẩn hoá biên độ, đóng gói WAV
+    data-source.js     ★ phân giải URL model/demo theo chế độ; listVoices, fetchModelSpecs;
+                       "path" trong models.config.json là URL tuyệt đối (http...) thì dùng
+                       nguyên, không cộng base — cho giọng tự host ngoài kho HF chung
+    vietnamese.js      chuẩn hoá số/ngày/giờ/tiền tệ/%/số La Mã → chữ; cắt câu (chỉ tại . ! ?)
+    espeak.js          eSpeak NG WASM → IPA (thay 'phonemizer' vì gói đó chỉ có tiếng Anh);
+                       ★ tự ghép lại dấu câu GIỮA câu — eSpeak xoá hết khi tách dòng
+    audio.js           ghép PCM (chèn khoảng lặng 300ms giữa các câu), chuẩn hoá biên độ, đóng gói WAV
     model-cache.js     ★ tải model (theo LÁT 8MB nếu >16MB) + cache Cache Storage
     history.js         lịch sử audio trong IndexedDB (giữ 50 bản)
     logger.js          bộ log dùng chung; log trong Worker gửi về qua postMessage
@@ -140,6 +144,27 @@ Ghi lại vì mỗi cái tốn một vòng deploy hỏng mới tìm ra:
    trỏ HAI phiên bản KHÁC nhau (TTS dùng onnxruntime-web bản ổn định; ASR dùng bản
    dev mà transformers.js ghim) — đúng, không phải nhầm.
 
+8. **Cloudflare R2 bắt buộc có thẻ thanh toán trên hồ sơ để kích hoạt**, kể cả chỉ
+   dùng free tier (10 GB, $0). Không thẻ thì `wrangler r2 bucket create` báo lỗi
+   `10042`. Thay thế đã dùng: đẩy giọng tự host lên **repo GitHub riêng**
+   (`ducth51/text2speed-voices`) và phát qua `raw.githubusercontent.com` — đã kiểm
+   chứng có CORS (`Access-Control-Allow-Origin: *`) VÀ hỗ trợ Range/206, nên trình
+   duyệt tải thẳng, không cần qua Worker proxy. Nhược điểm: repo phải **public** (repo
+   private thì raw.githubusercontent không phục vụ được cho người dùng ẩn danh).
+
+9. **eSpeak NG xoá SẠCH dấu câu khi tách một câu ghép thành nhiều dòng nội bộ**
+   (`--ipa`), không chỉ giữ lại dấu cuối câu. Ví dụ "A, B." → hai dòng `A` và `B`
+   rồi mất luôn dấu phẩy nếu chỉ nối bằng khoảng trắng. Piper cần đúng dấu câu đó để
+   biết chỗ ngắt nhịp/lên-xuống giọng — thiếu thì model rơi vào tình huống ngoài
+   phân phối huấn luyện, đọc dính câu và ngữ điệu bất thường. Cách sửa (`espeak.js`):
+   đếm số dấu câu trong text gốc, ghép lại đúng thứ tự giữa các dòng eSpeak trả về,
+   không chỉ khôi phục dấu cuối cùng như bản đầu.
+
+10. **Ghép nhiều câu VITS lại với nhau cần khoảng lặng, không thì nghe dồn dập.**
+    Mỗi câu (`chunkText` cắt tại `.!?`) được suy luận độc lập, có ngữ điệu mở/đóng
+    câu riêng; nối PCM liền 0ms giữa các câu làm giọng đọc nghe hụt hơi. `audio.js`
+    → `concatAudio` chèn 300ms lặng (`SENTENCE_GAP_SEC`) giữa mỗi câu.
+
 ## 7. Deploy (Cloudflare Worker)
 
 Cấu hình trên dashboard (project là **Worker**, không phải Pages):
@@ -172,22 +197,25 @@ Thêm model = thêm mục vào `models.config.json` (kèm `recommended`, `note`)
 `npm run build`. Tên model = tên trong config. Bảng "Chi tiết" đọc spec thật từ
 `.onnx.json` nên không cần khai tần số/số giọng bằng tay.
 
-### ★ RANH GIỚI BẢN QUYỀN — quan trọng cho phiên sau
+### Giọng tự host (không thuộc rhasspy/piper-voices)
 
-Bản công khai **chỉ chứa giọng mã nguồn mở / tổng hợp vô danh**. TUYỆT ĐỐI KHÔNG
-đẩy lên site công khai:
+18 giọng tiếng Việt tùy chỉnh (Ban Mai, Mỹ Tâm, Trấn Thành, Ngọc Ngạn, Việt Thảo...)
+nằm ở repo riêng **`github.com/ducth51/text2speed-voices`** (public, ~1 GB, nhánh
+`vi/<slug-ascii>.onnx(.json)`), phát qua `raw.githubusercontent.com` — xem cạm bẫy #8.
+Trong `models.config.json`, các mục này có `path` là **URL tuyệt đối đầy đủ**
+(`https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/<slug>`),
+khác với các giọng Piper thường chỉ ghi path tương đối trong kho HF.
 
-- **Bộ giọng nhân bản người thật** (Trấn Thành, Mỹ Tâm, Ngọc Ngạn… — trùng tên
-  giọng của trang gốc). Đây là quyền nhân thân giọng nói của người có thật; đăng
-  công khai = công cụ mạo danh. User đã nhiều lần đưa bộ này (gói
-  `voice-desk-tts-vi-model-pack`) và xin đẩy public — đã từ chối.
-- **API lách dịch vụ đám mây** (vd repo `capcut-tts-api` gọi API riêng CapCut bằng
-  chữ ký giả) — vi phạm ToS, và phá kiến trúc local.
+Muốn thêm giọng tự host khác (không phải Piper chính thức, hoặc giọng clone riêng):
+1. Đặt file `.onnx` + `.onnx.json` vào repo `text2speed-voices` (hoặc repo public khác).
+2. Thêm mục vào `models.config.json` với `path` là URL raw.githubusercontent đầy đủ
+   (không có đuôi `.onnx`/`.onnx.json` — `resolveModelUrls` tự thêm).
+3. `npm run build` để sinh lại `public/models.json`.
 
-Các model này đã được copy vào `models/` để **dùng LOCAL** (`npm run dev`, chỉ
-`localhost`). `models/` nằm trong `.gitignore` nên không lên repo — giữ nguyên vậy.
-Hướng hợp lệ nếu cần giọng riêng: 3 giọng `phatjkk/vits-tts-vietnamese` (tổng hợp
-vô danh) hoặc tự huấn luyện từ audio có quyền.
+⚠️ Model clone giọng người thật (celebrity voice clone) đặt ở repo **public** — ai
+có link cũng tải được. Cân nhắc vấn đề bản quyền/quyền riêng tư trước khi chia sẻ
+rộng rãi; muốn giấu thì phải chuyển sang nguồn có xác thực (R2 + proxy, cần thẻ —
+xem cạm bẫy #8) chứ raw.githubusercontent không phục vụ được repo private.
 
 ## 9. Lệnh hay dùng
 
@@ -205,8 +233,13 @@ npx wrangler dev --port 8788   # chạy thử đúng môi trường Worker trư�
   tải model Whisper vài trăm MB. Nếu làm tiếp: đặt model ONNX vào `models-asr/<tên>/`
   hoặc để transformers.js tự tải từ HF lần đầu.
 - **Tab Malaysia trống** — kho chưa có giọng Piper tiếng Mã Lai.
-- **Model vẫn phụ thuộc Hugging Face** (qua proxy). Muốn tự chủ: đưa model lên
-  Cloudflare R2 rồi đổi hằng `UPSTREAM` trong `worker/index.js`.
+- **Model Piper chuẩn vẫn phụ thuộc Hugging Face** (qua proxy `worker/index.js`).
+  Giọng tự host thì đã độc lập HF (dùng GitHub, xem mục 8) nhưng lại phụ thuộc
+  GitHub public repo — chưa có phương án dùng R2 vì cần thẻ thanh toán (cạm bẫy #8).
+  Có thẻ rồi thì bật R2 xong đổi `worker/index.js` để proxy thêm nguồn R2 song song
+  HF (nhánh riêng theo prefix, ví dụ từng thử ở nhánh `/api/model/r2/*` — đã revert).
+- **Repo giọng tự host (`text2speed-voices`) đang public** — chấp nhận đánh đổi để
+  không cần thẻ (xem cạm bẫy #8). Nếu cần private, phải quay lại proxy có xác thực.
 
 ## 11. Lịch sử phiên bản
 
@@ -216,3 +249,7 @@ npx wrangler dev --port 8788   # chạy thử đúng môi trường Worker trư�
 - v1.3 — thêm 7 giọng tiếng Anh chất lượng cao
 - v1.4 — nút "Chi tiết" + bảng so sánh model (đọc spec thật từ config); đổi tên
   NGHI-TTS → Text To Speed, thêm nhãn version
+- *(sau v1.4, chưa bump `package.json`)* — thêm 18 giọng tiếng Việt tự host qua
+  `raw.githubusercontent.com` (`data-source.js` hỗ trợ `path` dạng URL tuyệt đối);
+  sửa lỗi mất dấu câu giữa câu khi phonemize (`espeak.js`) và thiếu khoảng lặng
+  giữa các câu khi ghép audio (`audio.js`, 300ms) — xem cạm bẫy #8, #9, #10
