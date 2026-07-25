@@ -52,17 +52,24 @@ export function normalizePeak(samples, target = 1) {
   if (gain < 1) for (let i = 0; i < samples.length; i++) samples[i] *= gain
 }
 
-/** Nối nhiều RawAudio cùng sample rate thành một. */
+const SENTENCE_GAP_SEC = 0.3
+
+/**
+ * Nối nhiều RawAudio cùng sample rate thành một, chèn khoảng lặng giữa các
+ * câu — mỗi câu là một lần suy luận VITS độc lập với ngữ điệu riêng, dán
+ * liền 0ms nghe dồn dập/hụt hơi như đọc không kịp thở.
+ */
 export function concatAudio(chunks) {
   if (!chunks.length) return null
   const rate = chunks[0].sampling_rate
-  const total = chunks.reduce((sum, c) => sum + c.audio.length, 0)
-  const merged = new Float32Array(total)
+  const gapLength = Math.round(rate * SENTENCE_GAP_SEC)
+  const total = chunks.reduce((sum, c) => sum + c.audio.length, 0) + gapLength * (chunks.length - 1)
+  const merged = new Float32Array(total) // khoảng trống mặc định là 0 (lặng)
   let offset = 0
-  for (const c of chunks) {
+  chunks.forEach((c, i) => {
     merged.set(c.audio, offset)
-    offset += c.audio.length
-  }
+    offset += c.audio.length + (i < chunks.length - 1 ? gapLength : 0)
+  })
   normalizePeak(merged, 1)
   return new RawAudio(merged, rate)
 }
