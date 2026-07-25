@@ -86,6 +86,10 @@ vụ trực tiếp nên không tiêu tốn lượt gọi Worker.
 
 **Nâng cấp về sau:** nếu muốn tự chủ hoàn toàn, đưa model lên Cloudflare R2
 (10 GB miễn phí, egress miễn phí) rồi đổi `UPSTREAM` trong `worker/index.js`.
+⚠️ R2 bắt buộc có thẻ thanh toán trên hồ sơ để kích hoạt, kể cả free tier —
+nếu không có thẻ, dùng cách thay thế đã áp dụng cho các giọng tùy chỉnh: đẩy
+lên một repo GitHub public riêng rồi phát qua `raw.githubusercontent.com`
+(đã có CORS + hỗ trợ Range sẵn, không cần proxy). Xem mục "Model" bên dưới.
 
 ### Vì sao phải có bước dọn build
 
@@ -170,10 +174,13 @@ mục rồi khởi động lại server** — không cần sửa code.
 1. Làm sạch văn bản (bỏ emoji, ký tự lạ).
 2. Với tiếng Việt: đọc số thành chữ — ngày tháng, giờ, phần trăm, tiền tệ, số
    thập phân, số La Mã theo ngữ cảnh (`lib/vietnamese.js`).
-3. Cắt thành từng câu; mỗi xuống dòng là một ranh giới cứng.
-4. Từng câu → IPA bằng eSpeak NG (WASM), IPA → id theo `phoneme_id_map` của model.
+3. Cắt thành từng câu (chỉ tại `.` `!` `?`); mỗi xuống dòng là một ranh giới cứng.
+4. Từng câu → IPA bằng eSpeak NG (WASM), ghép lại đúng dấu câu **ở mọi vị trí
+   trong câu** (không chỉ cuối câu — eSpeak tự xoá hết khi tách dòng nội bộ, xem
+   `lib/espeak.js`), rồi IPA → id theo `phoneme_id_map` của model.
 5. onnxruntime-web chạy VITS, phát từng câu ngay khi xong (streaming).
-6. Ghép các đoạn, chuẩn hoá biên độ, đóng gói WAV, lưu vào lịch sử.
+6. Ghép các đoạn (chèn 300ms lặng giữa mỗi câu để không nghe dồn dập), chuẩn hoá
+   biên độ, đóng gói WAV, lưu vào lịch sử.
 
 ## Ghi chú kỹ thuật
 
@@ -205,6 +212,23 @@ cụ chạy dev đặt sẵn `PORT` cho Vite rồi hai tiến trình tranh nhau 
 Trang gốc dùng bộ giọng riêng của họ, đặt theo tên người thật. Bản dựng lại này
 không kèm những model đó — thư mục `models/` nhận bất kỳ giọng Piper nào bạn có
 quyền sử dụng.
+
+### Giọng tự host
+
+`models.config.json` chấp nhận `path` dạng **URL tuyệt đối** (bắt đầu bằng
+`http`) thay vì path tương đối trong kho `rhasspy/piper-voices` — dùng cho
+giọng không có sẵn trên Hugging Face (tự train, clone, hoặc tải thủ công).
+`data-source.js` → `resolveModelUrls` dùng nguyên URL đó, không cộng base.
+
+Bản deploy hiện tại dùng cách này cho 18 giọng tiếng Việt tùy chỉnh, lưu ở repo
+GitHub public riêng ([`ducth51/text2speed-voices`](https://github.com/ducth51/text2speed-voices))
+và phát qua `raw.githubusercontent.com/<owner>/<repo>/<branch>/<path>` — miền
+này đã có CORS (`Access-Control-Allow-Origin: *`) và hỗ trợ Range/206 sẵn nên
+trình duyệt tải thẳng, không cần qua Worker proxy như giọng Hugging Face.
+
+⚠️ Repo chứa giọng phải **public** để `raw.githubusercontent.com` phục vụ được
+cho người dùng ẩn danh. Nếu là giọng clone người thật, cân nhắc vấn đề bản
+quyền/quyền riêng tư trước khi để public.
 
 ## ASR
 
