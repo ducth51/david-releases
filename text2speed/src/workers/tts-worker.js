@@ -69,12 +69,8 @@ class PiperTts {
       return [Array.from(text.normalize('NFD'))]
     }
     const voice = this.config.espeak?.voice || 'en-us'
-    let ipa = await phonemize(text, voice)
+    const ipa = await phonemize(text, voice)
     if (!ipa) return []
-
-    // eSpeak bỏ dấu câu, nhưng Piper dùng chúng để ngắt nhịp — trả lại dấu cuối câu.
-    const finalPunct = text.trim().match(/[.!?,;:]$/)?.[0]
-    if (finalPunct && !ipa.endsWith(finalPunct)) ipa += finalPunct
 
     return [Array.from(ipa.normalize('NFD'))]
   }
