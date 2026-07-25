@@ -61,11 +61,21 @@ export async function phonemize(text, voice = 'en-us') {
     },
   })
 
-  return lines
-    .join(' ')
-    .replace(/\([a-z-]{2,7}\)/g, '') // bỏ dấu hiệu chuyển ngôn ngữ, ví dụ (en)
-    .replace(/\s+/g, ' ')
-    .trim()
+  const clauses = lines
+    .map((line) => line.replace(/\([a-z-]{2,7}\)/g, '').trim()) // bỏ dấu hiệu chuyển ngôn ngữ, ví dụ (en)
+    .filter(Boolean)
+
+  // eSpeak tách câu thành nhiều dòng ngay tại mỗi dấu câu nhưng không trả lại
+  // dấu đó — Piper cần dấu câu để biết chỗ ngắt nhịp/lên xuống giọng, thiếu
+  // dấu giữa câu (không chỉ cuối câu) khiến model đọc dính câu, ngắt nhịp và
+  // cao độ bất thường. Ghép lại đúng dấu theo thứ tự xuất hiện trong text gốc.
+  const puncts = text.match(/[.!?,;:]+/g) || []
+  let ipa = ''
+  for (let i = 0; i < clauses.length; i++) {
+    ipa += (ipa ? ' ' : '') + clauses[i] + (puncts[i] || '')
+  }
+
+  return ipa.replace(/\s+/g, ' ').trim()
 }
 
 /** Mã giọng espeak tương ứng với từng chế độ của app. */
