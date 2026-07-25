@@ -5,7 +5,25 @@
     "vi": [
       { "name": "vais1000", "path": "vi/vi_VN/vais1000/medium/vi_VN-vais1000-medium", "recommended": true, "note": "Giọng nữ, rõ và tự nhiên nhất trong ba giọng tiếng Việt." },
       { "name": "25hours", "path": "vi/vi_VN/25hours_single/low/vi_VN-25hours_single-low", "note": "Cùng dung lượng vais1000 nhưng tần số thấp hơn, nghe kém trong hơn." },
-      { "name": "vivos", "path": "vi/vi_VN/vivos/x_low/vi_VN-vivos-x_low", "note": "65 giọng khác nhau trong một model — đổi ô Giọng để đổi người đọc. Nhẹ, tải nhanh, nhưng chất lượng thấp nhất." }
+      { "name": "vivos", "path": "vi/vi_VN/vivos/x_low/vi_VN-vivos-x_low", "note": "65 giọng khác nhau trong một model — đổi ô Giọng để đổi người đọc. Nhẹ, tải nhanh, nhưng chất lượng thấp nhất." },
+      { "name": "Ban Mai", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/ban-mai" },
+      { "name": "Chiếu Thành", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/chieu-thanh" },
+      { "name": "Duy Oryx", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/duy-oryx" },
+      { "name": "Lạc Phi", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/lac-phi" },
+      { "name": "Mai Phương", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/mai-phuong" },
+      { "name": "Mạnh Dũng", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/manh-dung" },
+      { "name": "Minh Khang", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/minh-khang" },
+      { "name": "Minh Quang", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/minh-quang" },
+      { "name": "Mỹ Tâm", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/my-tam" },
+      { "name": "Mỹ Tâm Real", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/my-tam-real" },
+      { "name": "Ngọc Huyền (mới)", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/ngoc-huyen-moi" },
+      { "name": "Ngọc Ngạn", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/ngoc-ngan" },
+      { "name": "Phương Trang", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/phuong-trang" },
+      { "name": "Tài An", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/tai-an" },
+      { "name": "Thanh Phương Viettel", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/thanh-phuong-viettel" },
+      { "name": "Thiện Tâm", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/thien-tam" },
+      { "name": "Trấn Thành", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/tran-thanh" },
+      { "name": "Việt Thảo", "path": "https://raw.githubusercontent.com/ducth51/text2speed-voices/main/vi/viet-thao" }
     ],
     "en": [
       { "name": "lessac (US, cao)", "path": "en/en_US/lessac/high/en_US-lessac-high", "recommended": true, "note": "Giọng nữ Mỹ, chất lượng cao nhất — nên chọn mặc định cho tiếng Anh." },
