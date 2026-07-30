@@ -1,6 +1,6 @@
 {
-  "version": "v1.0.1",
-  "notes": "Cải thiện cơ chế tự động cập nhật (app tự kiểm tra bản mới khi khởi động).",
+  "version": "v1.0.2",
+  "notes": "Cập nhật biểu tượng (icon) mới cho ứng dụng.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/dichphude/DichPhuDe.exe",
-  "exe_sha256": "471da720f08c6957328bd579333ae410ca64cbe4a751aae563cc5b448f11c92a"
+  "exe_sha256": "4a3cd91a0df091565141114bc4a434297d719db007f90dd69253dd4512b12028"
 }
