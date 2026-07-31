@@ -1,6 +1,6 @@
 {
-  "version": "v1.0.2",
-  "notes": "Cập nhật biểu tượng (icon) mới cho ứng dụng.",
+  "version": "v1.0.8",
+  "notes": "v1.0.8: Them tab \"Prompt Anh/Video\" (tao prompt tao anh/video tu kich ban). Viet kich ban tu nhan dien the loai (truyen/drama hoac kien thuc/self-help) + 5 dinh dang. Nhieu nha cung cap AI + du phong \"Thu tu chay\". Dich nhanh hon, sua loi Gemini/Claude. Them nut Reset mac dinh + nhat ky chi tiet.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/dichphude/DichPhuDe.exe",
-  "exe_sha256": "4a3cd91a0df091565141114bc4a434297d719db007f90dd69253dd4512b12028"
+  "exe_sha256": "771276cd3561c1cbeebe922d9befe1772b49134ff317eabd3cf193e0fd611cbb"
 }
