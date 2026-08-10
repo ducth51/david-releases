@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-23.160",
-  "notes": "- Sửa lỗi bấm \"Dự án mới\" không vào được project (phần mềm đứng im ở đầu lượt chạy) — do Google Flow đổi bố cục trang chủ khiến tool bấm trúng dòng tiêu đề thay vì đúng nút; nay đã nhận đúng nút \"Dự án mới\".\n- Thư mục xem ảnh (ảnh tham chiếu & ảnh/video tải về): ảnh hiển thị TO hơn và dàn đều kín màn hình thay vì bị nhỏ dồn một góc; lăn chuột cuộn được thay vì phải kéo thanh trượt.\n- Bấm phóng to cửa sổ hoặc chuyển qua lại giữa các tab (Cài đặt / Tiến trình…) MƯỢT hơn hẳn — không còn giật/khựng.\n- Giới hạn \"Số Tab\" tối đa còn 4 (bỏ mức quá cao dễ bị Google gắn cờ hoạt động bất thường).\n- Cập nhật lại các đường dẫn ở trang Cộng đồng & Hỗ trợ (Nhóm Zalo, Fanpage, YouTube, Website).",
+  "version": "2026-07-23.165",
+  "notes": "- Sửa lỗi tool tạo project xong bị \"quay mãi rồi tự dừng\" ở đầu lượt chạy (do Google Flow đổi cách hiển thị số lượng ảnh \"1x\" thành \"x1\") — nay nhận đúng và chạy tiếp bình thường.\n- MỚI: Tự động XOÁ watermark (dấu ✦ 4 cánh của Google) trên ảnh tải về. Dùng kỹ thuật khôi phục lớp mờ nên KHÔNG làm hỏng nội dung ảnh (kể cả khi dấu nằm trên mặt/chi tiết): nền phẳng gần như sạch hẳn; nền tối hoặc nhiều chi tiết dấu mờ đi rất nhiều nhưng có thể còn vệt rất nhạt.\n- MỚI: Mở app là TỰ kiểm tra bản mới — có bản mới sẽ hiện thông báo ngay, bấm OK là cập nhật luôn, không cần tự bấm nút \"Cập nhật\" nữa.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "b38ac2d7fefa5e31703386f869ed80ec52b4a9f6ebe2f476ea6bf91e6f14dedd"
+  "exe_sha256": "1c20e6451383f4751433622b827b30411af3dda3a2b67269aba0979c4ea4e481"
 }
