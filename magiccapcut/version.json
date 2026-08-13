@@ -1,6 +1,6 @@
 {
-  "version": "1.1.2",
-  "notes": "- Sửa lỗi tab 'Audio + Text → SRT' báo 'Permission denied' khi giải nén bộ xử lý (do phần mềm diệt virus khoá file): nay tự thử lại nhiều lần, tải/giải nén 1 lần là chạy được.\n- Tinh gọn phần mềm: bỏ nhóm 'Tiện Ích Video' → app nhẹ hơn nhiều, mở nhanh hơn, bản cập nhật nhỏ hơn.\n- Căn phụ đề đa ngôn ngữ (Việt, Anh, Trung, Hàn, Thái, Nga...) theo forced-alignment.",
+  "version": "1.1.3",
+  "notes": "- Sửa lỗi tab 'Audio + Text → SRT' báo 'No module named concurrent' / không chạy được sau khi tải bộ xử lý: nay chạy ổn định.\n- Bản tải mới đã kèm sẵn bộ xử lý căn chữ → khách tải bản mới từ trang tải về thì KHÔNG phải tải thêm gì khi dùng.\n- Căn phụ đề đa ngôn ngữ (Việt, Anh, Trung, Hàn, Thái, Nga...) theo giọng đọc.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "b21d37f649eb465eb6b9087de62a8dcc9992d21345d461aa0867c608b2412773"
+  "exe_sha256": "527bb2d2d38e769fe45bd56700c4bf8d4fb568e440fdc9b3e93e275a7f32f3a0"
 }
