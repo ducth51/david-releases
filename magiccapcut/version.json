@@ -1,6 +1,6 @@
 {
-  "version": "1.0.12",
-  "notes": "- Trang \"Cộng Đồng & Hỗ Trợ\" được bố trí lại gọn gàng, chuyên nghiệp hơn: logo, tiêu đề và các liên kết nay căn giữa màn hình, các mục thẳng hàng và cách đều nhau.\n- Cập nhật lại các liên kết cộng đồng (Nhóm Zalo hỗ trợ, Fanpage, YouTube, Website chính thức của Rảnh Tay) trỏ đúng địa chỉ mới nhất.",
+  "version": "1.1.1",
+  "notes": "- Sửa lỗi tab 'Audio + Text → SRT' (Chính Xác Nhất) báo thiếu thư viện: nay app TỰ TẢI bộ xử lý căn chữ về máy ngay lần đầu dùng (chỉ tải 1 lần), không cần cài lại phần mềm.\n- Căn phụ đề khớp giọng đọc theo forced-alignment: đưa đúng kịch bản vào, app tìm mốc từng câu — hỗ trợ nhiều ngôn ngữ (Việt, Anh, Trung, Hàn, Thái, Nga...).\n- Thanh tiến độ chạy thật theo thời gian; tự động kiểm tra bản mới khi mở app.",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magiccapcut/MagicCapcutStudio.exe",
-  "exe_sha256": "6432dcb92257a5ec06e38b09374698aac7f7fc52cf0e3dbbc21da0feb1a19844"
+  "exe_sha256": "6bc8cccc14bd29a32e3940ce561e2188fd93afa2f2d6c1397f673e785fdbbd69"
 }
