@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-23.166",
-  "notes": "- Sửa lỗi tool tạo project xong bị \"quay mãi rồi tự dừng\" ở đầu lượt chạy (do Google Flow đổi cách hiển thị số lượng ảnh \"1x\" thành \"x1\") — nay nhận đúng và chạy tiếp bình thường.\n- MỚI: Tự động XOÁ watermark (dấu ✦ 4 cánh của Google) trên ảnh tải về. Dùng kỹ thuật khôi phục lớp mờ nên KHÔNG làm hỏng nội dung ảnh (kể cả khi dấu nằm trên mặt/chi tiết): nền phẳng gần như sạch hẳn; nền tối hoặc nhiều chi tiết dấu mờ đi rất nhiều nhưng có thể còn vệt rất nhạt.\n- MỚI: Mở app là TỰ kiểm tra bản mới — có bản mới sẽ hiện thông báo ngay, bấm OK là cập nhật luôn, không cần tự bấm nút \"Cập nhật\" nữa.",
+  "version": "2026-08-15.175",
+  "notes": "- Sửa lỗi chọn chế độ Video bị \"quay vòng\" rồi tự dừng ở đầu lượt chạy (do Google Flow đổi giao diện) — nay chọn Video + model Veo chạy lại bình thường.\n- Thêm độ phân giải khi tải video: 270p (ảnh GIF động) và 4K; mặc định tải về đổi thành 720p. (4K cần tài khoản Google đã nâng cấp; 270p tải ra file .gif.)\n- Mở app tự động phóng to toàn màn hình cho dễ thao tác.\n- Gọn lại giao diện + đồng bộ màu các nút; đổi tên vài mục cho dễ hiểu (Thiết lập chạy / Tiến trình chạy / Cài đặt gốc).",
   "exe_url": "https://raw.githubusercontent.com/ducth51/david-releases/main/magicflow/MagicFlow.exe",
-  "exe_sha256": "18481f57a9cd52a660a6ed3a717f6067643f336d13e76e1018d5112420f03ecb"
+  "exe_sha256": "e5c006d8a5fc8484f987e875d87f8a56f8c025ee24c088b95e77d7cab349e0c8"
 }
